@@ -34,7 +34,7 @@ const userSchema = new Schema({
         maxLength: 140
     },
     phone: Number,
-    identyCard: Number,
+    identyCard: String,
     city: String,
     reviews: {
         type: Schema.Types.ObjectId,

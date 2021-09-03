@@ -2,14 +2,16 @@ const express = require('express');
 const passport = require('passport');
 const secure = require('../middlewares/secure.mid')
 const property = require('../middlewares/property.mid')
-const booking = require('../middlewares/booking.midd')
+const booking = require('../middlewares/booking.mid')
 const auth = require('../controllers/people/auth.controller')
+const event = require('../middlewares/event.mid')
 const upload = require('../config/multer.config')
 
 const properties = require('../controllers/home/property.controller')
 const bookings = require('../controllers/home/booking.controller')
 const reviews = require('../controllers/review/review.controller')
 const chat = require('../controllers/chat/chat.controller')
+const events = require('../controllers/event/event.controller')
 
 const router = express.Router();
 
@@ -31,7 +33,7 @@ router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists,
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
 
 //Booking
-router.post('/bookings', bookings.create)
+router.post('/bookings', secure.isAuthenticated, bookings.create)
 router.get('/bookings', secure.isAuthenticated, bookings.list)
 router.get('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.detail)
 router.delete('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.delete)
@@ -47,7 +49,9 @@ router.get('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.getChat
 router.post('/bookings/:bookingId/chat/:id/message', secure.isAuthenticated, chat.newMessage)
 router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.getAll)
 
-//router.post('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.newMessage)
-//router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.allChats) // -------> no va
-//router.post('/bookings/:bookingId/chat/:id/message', secure.isAuthenticated, chat.message)
+//Event
+router.post('/events', secure.isAuthenticated, upload.single('image'), events.create)
+router.get('/events', secure.isAuthenticated, events.list)
+
+
 module.exports = router;
