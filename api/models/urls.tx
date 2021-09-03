@@ -1,0 +1,49 @@
+POST /singup { model’s properties } -> 201 user
+POST /login -> 200 user
+POST /logout, isAuthenticated, -> No content 204
+
+PATCH /profile, isAuthenticated -> 200 modified user
+DELETE /profile, isAuthenticated -> 204 No content
+GET /profile, isAuthenticated -> 200 user
+
+ ----------HOST---------------------
+POST /properties, isAuthenticated -> 201 property  accep||reject
+GET /properties, isAuthenticated -> 200 property
+PATCH /properties/:id, isOwner, isAuthenticated-> 200 property
+DELETE /properties/:id, isOwner,isAuthenticated -> 204 property
+
+------------GUEST---------------------
+POST /properties/:id/book, isAuthenticated -> 201 booking 
+GET /bookings, isAuthenticated ->  200 booking
+Get /bookings/:id
+DELETE /booking/:id, isAuthenticated  -> 204 booking
+POST /bookings/:id/review
+
+------------- CHAT-------------------------
+GET /profile/my-messages/:id , isAuthenticated -> 200 chats
+GET /profile/chat/:id, isAuthenticated -> 200 chat
+POST / profile/chat/:id, isAuthenticated -> 
+POST /profile/chat/:id/message, isAuthenticated  -> 201 chat 
+
+
+
+
+FUNCIONALIDADES BONITAS
+-Sistema Pago PayPal
+-Geolocalización
+- Carrusel 
+
+module.exports.create = (req, res, next) => {
+    const newChat = new Chat({ users: [req.params.id, req.user.id] })
+    Chat.find({ users: { $all: [req.params.id, req.user.id] }})
+        .then(chat => {
+            return Chat.create(newChat)
+                .then(chat => res.json(chat))
+        })
+        .catch(next)
+}
+
+router.post('/profile/:profileId/chat', secure.isAuthenticated, chat.create)
+router.get('/profile/:profileId/chat/:id', secure.isAuthenticated, chat.getChat)
+router.get('/profile/:profileId/my-messages', secure.isAuthenticated, chat.allChats) // -------> no va
+router.post('/profile/:profileId/chat/:id/message', secure.isAuthenticated, chat.message)

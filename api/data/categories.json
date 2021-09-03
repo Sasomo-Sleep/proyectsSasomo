@@ -1,0 +1,59 @@
+{
+    "Museum": {
+        "text": "Museum",
+        "icon": "fas fa-landmark"
+    },
+    "Live-music" : {
+        "text" : "Live-music",
+        "icon" : "fas fa-microphone-alt"
+
+    },
+    "Night-life": {
+        "text" : "Night-life",
+        "icon" : "far fa-star"
+    },
+    "Beers/drinking": {
+        "text" : "Beers/drinking",
+        "icon" : "fas fa-glass-cheers"
+    },
+    "Nature" : {
+        "text" : "Nature",
+        "icon" : "fas fa-tree"
+    },
+    "Queer" : {
+        "text" : "Queer",
+        "icon" : "fas fa-crown"
+    },
+    "Foodie" : {
+        "text" : "Foodie",
+        "icon" : "fas fa-pizza-slice"
+    },
+    "Extreme-Sports" : {
+        "text" : "Extreme-Sports",
+        "icon" : "fas fa-snowboarding"
+    },
+    "Beach" : {
+        "text" : "Beach",
+        "icon" : "fas fa-umbrella-beach"
+    },
+    "Swimming-Pool" : {
+        "text" : "Swimming-Pool",
+        "icon" : "fas fa-water"
+    },
+    "Amusement-Park" : {
+        "text" : "Amusement-Park",
+        "icon" : "fas fa-dungeon"
+    },
+    "Interrail" : {
+        "text" : "Interrail",
+        "icon" : "fas fa-suitcase"
+    },
+    "Races" : {
+        "text" : "Races",
+        "icon" : "fas fa-horse"
+    },
+    "Sports-games" : {
+        "text" : "Sports",
+        "icon" : "far fa-futbol"
+    }
+}
