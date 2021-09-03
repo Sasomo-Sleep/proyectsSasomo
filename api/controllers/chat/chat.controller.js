@@ -46,14 +46,10 @@ module.exports.newMessage = (req, res, next) => {
                 user: req.user.id
             })
                 .then(message => {
-                    Chat.updateOne(
-                        { id: chat.id },
-                        { $push: { message: message.id } }
-                    )
-                        .then(chat => {
-                            console.log(chat, "holis")
-                            res.json(chat)
-                        })
+                    chat.messages.push(message);
+                    chat.save();
+                    res.json(chat)
+                  
                 })
         })
         .catch(next)
