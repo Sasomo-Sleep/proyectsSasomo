@@ -2,11 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const User = require('./user.model')
 const Property = require('./property.model')
-
+const Chat = require('./chat/chat.model')
+const Review = require('./review.model')
 
 const bookingSchema = new Schema({
-    startDate: Date,
-    endDate: Date,
+    checkIn: Date,
+    checkOut: Date,
     guestsClass: {
         type: [
             {
@@ -30,8 +31,15 @@ const bookingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    chats: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Chat'
+    }],
     confirmed: Boolean,
-    review: String
+    review: {
+        type: String,
+        ref: 'Review'
+    }
 }, {
     timestamps: true,
     toJSON: {

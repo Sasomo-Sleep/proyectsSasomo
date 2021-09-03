@@ -31,7 +31,7 @@ router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists,
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
 
 //Booking
-router.post('/bookings',  bookings.create)
+router.post('/bookings', bookings.create)
 router.get('/bookings', secure.isAuthenticated, bookings.list)
 router.get('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.detail)
 router.delete('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.delete)
@@ -42,10 +42,12 @@ router.get('/reviews', secure.isAuthenticated, reviews.list)
 router.delete('/reviews/:reviewId', secure.isAuthenticated, reviews.delete)
 
 //Chat
-/* router.post('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.create)
- */
 router.post('/bookings/:bookingId/chat', secure.isAuthenticated, chat.create)
 router.get('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.getChat)
+router.post('/bookings/:bookingId/chat/:id/message', secure.isAuthenticated, chat.newMessage)
+router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.getAll)
+
+//router.post('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.newMessage)
 //router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.allChats) // -------> no va
 //router.post('/bookings/:bookingId/chat/:id/message', secure.isAuthenticated, chat.message)
 module.exports = router;

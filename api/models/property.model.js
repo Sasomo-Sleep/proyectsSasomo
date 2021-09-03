@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const User = require('./user.model')
-
+const Review = require('./review.model')
 const propertySchema = new Schema({
     name: String,
     rooms: Number,
@@ -20,7 +20,13 @@ const propertySchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    reviews: [{
+        type: {
+            type: String,
+            ref: 'Review'
+        }
+    }]
 }, {
     timestamps: true,
     toJSON: {
