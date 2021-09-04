@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 const User = require('./user.model')
 const Review = require('./review.model')
 const propertySchema = new Schema({
+
     name: String,
     rooms: Number,
     price: Number,
@@ -49,6 +50,13 @@ const propertySchema = new Schema({
         }
     }
 })
+
+propertySchema.virtual('likes', {
+    ref: 'Like',
+    localField: 'id',
+    foreignField: 'propertyId',
+    justOne: false
+});
 
 const Property = mongoose.model('Property', propertySchema)
 

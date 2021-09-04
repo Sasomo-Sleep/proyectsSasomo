@@ -10,6 +10,7 @@ const upload = require('../config/multer.config')
 const properties = require('../controllers/home/property.controller')
 const bookings = require('../controllers/home/booking.controller')
 const reviews = require('../controllers/review/review.controller')
+const likes = require('../controllers/like/like.controller')
 const chat = require('../controllers/chat/chat.controller')
 const events = require('../controllers/event/event.controller')
 
@@ -42,6 +43,10 @@ router.delete('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bo
 router.post('/bookings/:bookingId/reviews', secure.isAuthenticated, booking.exists, reviews.create)
 router.get('/reviews', secure.isAuthenticated, reviews.list)
 router.delete('/reviews/:reviewId', secure.isAuthenticated, reviews.delete)
+
+//Likes
+router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create)
+//router.get('/properties/liked', secure.isAuthenticated, likes.propertiesLiked)
 
 //Chat
 router.post('/bookings/:bookingId/chat', secure.isAuthenticated, chat.create)
