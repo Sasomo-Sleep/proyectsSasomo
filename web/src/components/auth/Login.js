@@ -22,12 +22,21 @@ function Login() {
         ev.preventDefault()
         service.login(data.email, data.password)
             .then(user => {
-                auth.login(user)
                 history.push('/profile')
             })
             .catch(err => console.error(err.response.data))
     }
 
+
+/* module.exports.get = (req, res, next) => {
+    return Property.find({ owner: req.user.id })
+                .then(properties => res.status(200).json({
+                    profile: req.user,
+                    properties
+                }))
+}
+
+ */
     return (
         <div>
             <form onSubmit={handleSubmit}>

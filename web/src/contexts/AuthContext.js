@@ -10,14 +10,13 @@ function AuthContextProvider({ children }) {
     const history = useHistory()
 
     useEffect(() => {
-        service.profile('me')
+        service.profile()
             .then((user) => {
                 setUser(user)
             })
     }, [])
 
     function login(user) {
-        console.log(user.id)
         setUser(user)
     }
 
@@ -30,6 +29,8 @@ function AuthContextProvider({ children }) {
         login,
         logout,
     }
+
+
 
     return (
         <AuthContext.Provider value={value} >

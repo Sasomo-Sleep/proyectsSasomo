@@ -1,10 +1,7 @@
 const User = require('../../models/user.model')
 const Property = require('../../models/property.model')
 
-/* POST /properties, isAuthenticated -> 201 property  accep||reject
-GET /properties, isAuthenticated -> 200 property
-PATCH /properties/:id, isOwner, isAuthenticated-> 200 property
-DELETE /properties/:id, isOwner,isAuthenticated -> 204 property */
+
 
 module.exports.create = (req, res, next) => {
     if (!req.file) {

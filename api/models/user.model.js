@@ -37,10 +37,11 @@ const userSchema = new Schema({
     phone: Number,
     identyCard: String,
     city: String,
-    reviews: {
+    idioms: [String],
+    reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review"
-    },
+    }],
     interests: {
         type: [{
             type: String,

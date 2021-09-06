@@ -6,7 +6,7 @@ const login = (email, password) => http.post('/login', { email, password })
 
 const logout = () => http.post('/logout')
 
-const profile = (id) => http.get(`/profile/${id}`)
+const profile = () => http.get(`/profile`)
 
 
 const service = {

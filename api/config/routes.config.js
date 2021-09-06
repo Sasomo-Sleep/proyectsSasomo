@@ -22,9 +22,9 @@ router.post('/login', auth.login)
 router.post('/logout', secure.isAuthenticated, auth.logout)
 
 //user
-router.get('/profile/:id', secure.isAuthenticated, auth.get)
-router.patch('/profile/:id', secure.isAuthenticated, upload.single('avatar'), auth.update)
-router.delete('/profile/:id', secure.isAuthenticated, auth.delete)
+router.get('/profile', secure.isAuthenticated, auth.get)
+router.patch('/profile', secure.isAuthenticated, upload.single('avatar'), auth.update)
+router.delete('/profile', secure.isAuthenticated, auth.delete)
 
 //property
 router.post('/properties', upload.array('images'), secure.isAuthenticated, properties.create) //no puedo cambiar imagenes desde postman, purqueeee? :()

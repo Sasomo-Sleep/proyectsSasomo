@@ -1,7 +1,8 @@
 const createError = require('http-errors')
 const User = require('../../models/user.model')
 const passport = require('passport')
-
+const Property = require('../../models/property.model')
+const Booking = require('../../models/booking.model')
 module.exports.create = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {
@@ -34,12 +35,15 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.get = (req, res, next) => {
-    if (req.params.id === "me")
-        return res.json(req.user)
-
-    User.findById(req.params.id)
-        .then(user => res.status(200).json(user))
+    
+    Property.find({ owner: req.user.id })
+        .then(properties => res.status(200).json({
+            profile: req.user,
+            properties
+        }))
         .catch(next)
+    Booking.find({ })
+    
 }
 
 module.exports.delete = (req, res, next) => {
@@ -49,7 +53,7 @@ module.exports.delete = (req, res, next) => {
 }
 
 module.exports.update = (req, res, next) => {
-    const id = req.params.id
+    const id = req.user.id
     User.findByIdAndUpdate(id, req.body, { new: true })
         .then(user => res.status(202).json(user))
         .catch(next)
