@@ -7,7 +7,7 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    Booking.find()
+    Booking.find({ guest: req.user.id })
         .then(bookings => res.json(bookings))
         .catch(next)
 }
