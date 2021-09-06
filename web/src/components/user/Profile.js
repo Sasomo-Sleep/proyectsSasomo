@@ -8,9 +8,6 @@ import { AuthContext } from '../../contexts/AuthContext';
 function Profile() {
     
      const auth = useContext(AuthContext)
-     const [profile, setProfile] = useState()
-
-  
 
     return (
         <div className="profile">

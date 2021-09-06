@@ -18,7 +18,7 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    Property.find()
+    Property.find({owner: req.user.id})
         .then(properties => res.json(properties))
         .catch(next)
 }
