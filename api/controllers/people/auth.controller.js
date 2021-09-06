@@ -12,7 +12,7 @@ module.exports.create = (req, res, next) => {
                     ...req.body,
                     avatar: req?.file?.path
                 })
-                    .then(user => res.status(200).json(user))
+                    .then(user => res.status(201).json(user))
             }
         })
         .catch(next)

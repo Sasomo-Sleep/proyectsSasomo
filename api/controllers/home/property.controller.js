@@ -19,7 +19,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
     Property.find()
-        .then(property => res.json(property))
+        .then(properties => res.json(properties))
         .catch(next)
 }
 

@@ -29,6 +29,7 @@ const userSchema = new Schema({
             return "/logo192.png"
         }
     },
+    birthday: String,
     about: {
         type: String,
         maxLength: 140

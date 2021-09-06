@@ -17,14 +17,14 @@ const events = require('../controllers/event/event.controller')
 const router = express.Router();
 
 //auth
-router.post('/profile', auth.create)
+router.post('/singup', auth.create)
 router.post('/login', auth.login)
-router.delete('/profile/:id', secure.isAuthenticated, auth.delete)
 router.post('/logout', secure.isAuthenticated, auth.logout)
 
 //user
 router.get('/profile/:id', secure.isAuthenticated, auth.get)
 router.patch('/profile/:id', secure.isAuthenticated, upload.single('avatar'), auth.update)
+router.delete('/profile/:id', secure.isAuthenticated, auth.delete)
 
 //property
 router.post('/properties', upload.array('images'), secure.isAuthenticated, properties.create) //no puedo cambiar imagenes desde postman, purqueeee? :()
