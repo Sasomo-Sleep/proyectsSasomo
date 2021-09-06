@@ -35,16 +35,32 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.get = (req, res, next) => {
-    
+
+    const propertyPromise = Property.find({ owner: req.user.id })
+    const bookingPromise = Booking.find({ guest: req.user.id })
+
+    Promise.all([propertyPromise, bookingPromise])
+        .then(([properties, bookings]) => {
+            res.status(200).json({
+                profile: req.user,
+                properties,
+                bookings
+            })
+        })
+        .catch(next)
+
+}
+/* module.exports.get = (req, res, next) => {
+
     Property.find({ owner: req.user.id })
         .then(properties => res.status(200).json({
             profile: req.user,
             properties
         }))
         .catch(next)
-    Booking.find({ })
-    
+
 }
+ */
 
 module.exports.delete = (req, res, next) => {
     User.findByIdAndDelete(req.params.id)
