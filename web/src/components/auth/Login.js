@@ -22,9 +22,10 @@ function Login() {
         ev.preventDefault()
         service.login(data.email, data.password)
             .then(user => {
+                auth.getProfile()
                 history.push('/profile')
             })
-            .catch(err => console.error(err.response.data))
+            .catch(err => console.error(err))
     }
 
 

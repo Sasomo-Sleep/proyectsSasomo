@@ -44,7 +44,7 @@ router.post('/bookings/:bookingId/reviews', secure.isAuthenticated, booking.exis
 router.get('/reviews', secure.isAuthenticated, reviews.list)
 router.delete('/reviews/:reviewId', secure.isAuthenticated, reviews.delete)
 
-//Likes
+//Likes 
 router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create)
 router.get('/likes', secure.isAuthenticated, likes.propertiesLiked)
 

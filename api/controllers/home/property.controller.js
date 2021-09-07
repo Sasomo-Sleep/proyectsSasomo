@@ -4,18 +4,21 @@ const Property = require('../../models/property.model')
 
 
 module.exports.create = (req, res, next) => {
-    if (!req.file) {
+    console.log(req.file, req.files)
+
+    if (!req.files) {
         delete req.body.images
-    } else {                                        //necesario??
-        req.body.images = req.file.path
+    } else {
+        req.body.images = req.files.map(image => image.path)
     }
-    Property.create({...req.body, owner: req.user.id})
+
+    Property.create({ ...req.body, owner: req.user.id })
         .then(property => res.status(200).json(property))
         .catch(next)
 }
 
 module.exports.list = (req, res, next) => {
-    Property.find({owner: req.user.id})
+    Property.find({ owner: req.user.id })
         .then(properties => res.json(properties))
         .catch(next)
 }
@@ -26,8 +29,14 @@ module.exports.detail = (req, res, next) => {
 
 module.exports.edit = (req, res, next) => {
 
+    if (!req.files) {
+        delete req.body.images
+    } else {
+        req.body.images = req.files.map(image => image.path)
+    }
+    
     const property = req.property
-    const data = { name, description, price, maxGuest, images } = req.body
+    const data = { name, description, price, maxGuest } = req.body
 
     Object.assign(property, data)
     property.save()

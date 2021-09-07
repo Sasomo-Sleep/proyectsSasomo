@@ -4,6 +4,7 @@ const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"
 const PASSWORD_PATTERN = /^.{8,}$/;
 const bcrypt = require('bcrypt');
 const categories = require('../data/categories.json')
+
 const userSchema = new Schema({
     name: {
         type: String,

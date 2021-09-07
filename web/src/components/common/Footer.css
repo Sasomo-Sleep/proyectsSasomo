@@ -1,0 +1,19 @@
+.span-footer {
+  font-size: 15px;
+}
+
+#nav-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: red;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 0.5rem;
+  justify-content: space-around;
+}
+a {
+  text-decoration: none;
+}

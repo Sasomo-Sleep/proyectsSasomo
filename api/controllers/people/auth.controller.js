@@ -40,7 +40,6 @@ module.exports.get = (req, res, next) => {
 
     const propertyPromise = Property.find({ owner: req.user.id })
     const bookingPromise = Booking.find({ guest: req.user.id })
-    const likePromise = Like.find()
 
     Promise.all([propertyPromise, bookingPromise])
         .then(([properties, bookings]) => {
