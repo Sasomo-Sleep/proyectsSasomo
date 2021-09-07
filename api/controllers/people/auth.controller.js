@@ -3,6 +3,8 @@ const User = require('../../models/user.model')
 const passport = require('passport')
 const Property = require('../../models/property.model')
 const Booking = require('../../models/booking.model')
+const Like = require('../../models/like.model')
+
 module.exports.create = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {
@@ -38,6 +40,7 @@ module.exports.get = (req, res, next) => {
 
     const propertyPromise = Property.find({ owner: req.user.id })
     const bookingPromise = Booking.find({ guest: req.user.id })
+    const likePromise = Like.find()
 
     Promise.all([propertyPromise, bookingPromise])
         .then(([properties, bookings]) => {

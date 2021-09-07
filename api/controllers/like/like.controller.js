@@ -1,4 +1,5 @@
 const Like = require('../../models/like.model')
+const Property = require('../../models/property.model')
 
 module.exports.create = (req, res, next) => {
 
@@ -18,6 +19,15 @@ module.exports.create = (req, res, next) => {
         })
         .catch(next)
 
+}
+
+module.exports.propertiesLiked = (req, res, next) => {
+
+    Like.find({ userId: req.user.id })
+        .populate('propertyId')
+        .populate('userId')
+        .then(likes => res.status(200).json(likes))
+        .catch(next)
 }
 
 /* module.exports.propertiesLiked = (req, res, next) => {

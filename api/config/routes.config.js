@@ -46,7 +46,7 @@ router.delete('/reviews/:reviewId', secure.isAuthenticated, reviews.delete)
 
 //Likes
 router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create)
-//router.get('/properties/liked', secure.isAuthenticated, likes.propertiesLiked)
+router.get('/likes', secure.isAuthenticated, likes.propertiesLiked)
 
 //Chat
 router.post('/bookings/:bookingId/chat', secure.isAuthenticated, chat.create)
