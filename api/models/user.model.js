@@ -4,6 +4,7 @@ const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"
 const PASSWORD_PATTERN = /^.{8,}$/;
 const bcrypt = require('bcrypt');
 const categories = require('../data/categories.json')
+const Booking = require('./booking.model')
 
 const userSchema = new Schema({
     name: {
@@ -56,11 +57,14 @@ const userSchema = new Schema({
 }, {
     timestamps: true,
     toJSON: {
+        virtuals: true,
         transform: (doc, ret) => {
             ret.id = doc._id;
             delete ret._id;
             delete ret.__v;
             delete ret.password;
+            ret.bookings = doc.bookings || []
+            ret.properties = doc.properties || []
 
             return ret
         }
@@ -75,6 +79,21 @@ const userSchema = new Schema({
         }
     }
 })
+
+
+userSchema.virtual('bookings', {
+    ref: 'Booking',
+    localField: '_id',
+    foreignField: 'guest',
+    justOne: false
+});
+
+userSchema.virtual('properties', {
+    ref: 'Property',
+    localField: '_id',
+    foreignField: 'owner',
+    justOne: false
+});
 
 userSchema.pre('save', function (next) {
     if (this.isModified('password')) {

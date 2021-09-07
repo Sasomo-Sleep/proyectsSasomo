@@ -37,20 +37,13 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.get = (req, res, next) => {
-
-    const propertyPromise = Property.find({ owner: req.user.id })
-    const bookingPromise = Booking.find({ guest: req.user.id })
-
-    Promise.all([propertyPromise, bookingPromise])
-        .then(([properties, bookings]) => {
-            res.status(200).json({
-                profile: req.user,
-                properties,
-                bookings
-            })
+    User.findById(req.user.id)
+        .populate('properties')
+        .populate('bookings')
+        .then(user => {
+            res.status(200).json(user)
         })
-        .catch(next)
-
+        .catch(next);
 }
 /* module.exports.get = (req, res, next) => {
 

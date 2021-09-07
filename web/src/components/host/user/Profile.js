@@ -3,44 +3,47 @@ import React, { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext';
 import moment from 'moment'
 import './Profile.css'
-function Profile() {
 
+function Profile() {
     const auth = useContext(AuthContext)
-    if (!auth.user || !auth.user.profile) {
+    if (!auth.user || !auth.user) {
         return <> </>
     }
+    console.log(auth.user, "heeeee")
     return (
         <div className="profile1 my-5 mx-2">
             <div className="me-auto d-flex ">
 
                 <div className="col-6">
-                    <h1 > Hi, I'm {auth.user.profile.name}</h1>
-                    <span> {auth.user.profile.name} joins {moment(auth.user.profile.createAt).format("MMM Do YY")}</span>
+                    <h1 > Hi, I'm {auth.user.name}</h1>
+                    <span> {auth.user.name} joins {moment(auth.user.createAt).format("MMM Do YY")}</span>
                     <p> Identidad verificada</p>
-                    <p> {auth.user.profile.reviews} Reviews</p>
+                    <p> {auth.user.reviews} Reviews</p>
 
                     <hr />
                 </div>
 
                 <div className="col-4">
-                    <img className="avatar align-self-start img-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user.profile.name} />
+                    <img className="avatar align-self-start img-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user.name} />
                 </div>
             </div>
             <div className="profile">
                 <h3> About of ...</h3>
                 <p> <i className="fas fa-quote-left"></i></p>
-                <h6> {auth.user.profile.about}</h6>
-                <p> Live in {auth.user.profile.city}</p>
-                {auth.user.profile.idioms.map(idiom => <span key={idiom}>{idiom}</span>)}
+                <h6> {auth.user.about}</h6>
+                <p> Live in {auth.user.city}</p>
+                <div clasName="pp">
+                    {auth.user.idioms.map(idiom => <span key={idiom}>{idiom}</span>)}
+                </div>
                 <hr />
             </div>
 
             <div className="profile">
 
-                <h3> {auth.user.profile.name} confirmed  </h3>
-                <p> {auth.user.profile.identyCard}</p>
-                <p> {auth.user.profile.email}</p>
-                <p>{auth.user.profile.phone}</p>
+                <h3> {auth.user.name} confirmed  </h3>
+                <p> {auth.user.identyCard}</p>
+                <p> {auth.user.email}</p>
+                <p>{auth.user.phone}</p>
                 <hr />
             </div>
 

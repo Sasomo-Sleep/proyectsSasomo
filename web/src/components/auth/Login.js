@@ -20,12 +20,7 @@ function Login() {
     }
     function handleSubmit(ev) {
         ev.preventDefault()
-        service.login(data.email, data.password)
-            .then(user => {
-                auth.getProfile()
-                history.push('/profile')
-            })
-            .catch(err => console.error(err))
+        auth.login(data.email, data.password)
     }
 
 

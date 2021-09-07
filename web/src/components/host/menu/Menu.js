@@ -14,11 +14,13 @@ function Menu() {
         service.logout()
             .then(() => {
                 auth.logout()
-                history.push('/login')
             })
             .catch(err => console.error(err))
     }
-    if (!auth.user) return <> </>
+    if (!auth.user) {
+        console.log("NO user")
+        return <> </>
+    }
     return (
         <div className="menu my-3 mx-2">
             <h1>Menu</h1>
@@ -31,13 +33,13 @@ function Menu() {
                 <p>Guides</p>
                 <p>Create a new room advertisement</p>
                 <p>Offer a new experience</p>
-                <hr />
+                <hr/>
             </div>
             <div className="my-3 mx-2">
 
                 <span >CUENTA</span>
                 <div className="cuenta">
-                    <img className="avatar align-self-start imgg-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user.profile?.name} />
+                    <img className="avatar align-self-start imgg-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user?.name} />
                     <Link to="/profile"><p> Your profile</p></Link>
                 </div>
 

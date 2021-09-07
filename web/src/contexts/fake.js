@@ -1,3 +1,4 @@
+/* 
 import React, { useEffect, useState } from 'react'
 import service from '../services/sasomo-service';
 import { useHistory } from 'react-router';
@@ -16,21 +17,14 @@ function AuthContextProvider({ children }) {
         }
     }, [])
 
-    function login(email, password) {
-        service.login(email, password)
-            .then(user => {
-                getProfile()
-                localStorage.setItem('user', user.id)
-                setUser(user)
-                history.push('/profile')
-            })
-            .catch(err => console.error(err))
+    function login(user) {
+        localStorage.setItem('user', user.id)
+        setUser(user)
     }
 
     function logout() {
         localStorage.removeItem('user')
         setUser(null)
-        history.push('/login')
     }
 
     function getProfile() {
@@ -57,3 +51,4 @@ function AuthContextProvider({ children }) {
 }
 
 export default AuthContextProvider
+ */

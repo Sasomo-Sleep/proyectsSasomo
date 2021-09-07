@@ -4,6 +4,9 @@ const User = require('../models/user.model');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
+require('../models/booking.model')
+require('../models/property.model')
+
 passport.serializeUser((user, next) => {
   next(null, user.id);
 });
