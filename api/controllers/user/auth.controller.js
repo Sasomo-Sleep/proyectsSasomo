@@ -58,6 +58,7 @@ module.exports.get = (req, res, next) => {
                 }
             ]
         })
+        .populate('reviews')
         .then(user => {
             res.status(200).json(user)
         })
@@ -82,9 +83,14 @@ module.exports.delete = (req, res, next) => {
 }
 
 module.exports.update = (req, res, next) => {
+    if (!req.file) {
+        delete req.user.avatar
+    } else {
+        req.user.avatar = req.file.path
+    }
     const user = req.user
     const data = req.body
-    user.avatar = req.file.path
+
     Object.assign(user, data)
     user.save()
         .then(user => res.status(202).json(user))

@@ -15,6 +15,26 @@ module.exports.create = (req, res, next) => {
         .catch(next)
 }
 
+
+/* module.exports.create = (req, res, next) => {
+    Booking.findById(req.params.bookingId)
+        .populate('property')
+        .then(booking => {
+            Chat.find({ users: [booking.guest, booking.property.owner] })
+                .then(chat => {
+                    if (!chat) {
+                        return Chat.create({ users: [booking.guest, booking.property.owner] })
+                            .then(chat => {
+                                res.json(chat)
+                            })
+                    } else {
+                        next()
+                    }
+                })
+        })
+        .catch(next)
+} */
+
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
         .populate('users')

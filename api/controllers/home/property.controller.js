@@ -36,7 +36,7 @@ module.exports.edit = (req, res, next) => {
     }
     
     const property = req.property
-    const data = { name, description, price, maxGuest } = req.body
+    const data = req.body
 
     Object.assign(property, data)
     property.save()
