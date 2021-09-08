@@ -17,7 +17,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
-        .populate('booking')
+        .populate('users')
         .populate('messages')
         .then(chat => {
             res.json(chat)
@@ -25,7 +25,7 @@ module.exports.getChat = (req, res, next) => {
         .catch(next)
 }
 
-module.exports.getAll = (req, res, next) => {
+/* module.exports.getAll = (req, res, next) => {
 
     Booking.findById(req.params.bookingId)
         .populate('property')
@@ -34,6 +34,14 @@ module.exports.getAll = (req, res, next) => {
             return Chat.find({ users: req.user.id })
                 .then(chats => res.json(chats))
         })
+        .catch(next)
+} */
+
+module.exports.getAll = (req, res, next) => {
+    Chat.find({ users: req.user.id })
+        .populate('users')
+        .populate('messages')
+        .then(chats => res.status(200).json(chats))
         .catch(next)
 }
 
@@ -49,7 +57,7 @@ module.exports.newMessage = (req, res, next) => {
                     chat.messages.push(message);
                     chat.save();
                     res.json(chat)
-                  
+
                 })
         })
         .catch(next)

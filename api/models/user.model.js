@@ -5,6 +5,8 @@ const PASSWORD_PATTERN = /^.{8,}$/;
 const bcrypt = require('bcrypt');
 const categories = require('../data/categories.json')
 const Booking = require('./booking.model')
+const Property = require('./property.model')
+const Chat = require('./chat/chat.model')
 
 const userSchema = new Schema({
     name: {
@@ -49,11 +51,7 @@ const userSchema = new Schema({
             type: String,
             enum: Object.keys(categories)
         }]
-    },
-    messages: {
-        type: [String]
     }
-
 }, {
     timestamps: true,
     toJSON: {
@@ -92,6 +90,12 @@ userSchema.virtual('properties', {
     ref: 'Property',
     localField: '_id',
     foreignField: 'owner',
+    justOne: false
+});
+userSchema.virtual('chats', {
+    ref: 'Chat',
+    localField: '_id',
+    foreignField: 'users',
     justOne: false
 });
 

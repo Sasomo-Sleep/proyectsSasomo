@@ -1,12 +1,13 @@
 import http from './base-api-service'
 
+//auth
 const singUp = (user) => http.post('/singup', user)
-
 const login = (email, password) => http.post('/login', { email, password })
-
 const logout = () => http.post('/logout')
 
-const profile = () => http.get(`/profile`)
+//panel principal
+const profile = () => http.get('/profile')
+const getChats = () => http.get('/profile/my-chats')
 
 
 const service = {
@@ -14,6 +15,7 @@ const service = {
     login,
     logout,
     profile,
+    getChats
 
 }
 

@@ -3,7 +3,7 @@ const passport = require('passport');
 const secure = require('../middlewares/secure.mid')
 const property = require('../middlewares/property.mid')
 const booking = require('../middlewares/booking.mid')
-const auth = require('../controllers/people/auth.controller')
+const auth = require('../controllers/user/auth.controller')
 const event = require('../middlewares/event.mid')
 const upload = require('../config/multer.config')
 
@@ -49,10 +49,12 @@ router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create
 router.get('/likes', secure.isAuthenticated, likes.propertiesLiked)
 
 //Chat
-router.post('/bookings/:bookingId/chat', secure.isAuthenticated, chat.create)
-router.get('/bookings/:bookingId/chat/:id', secure.isAuthenticated, chat.getChat)
-router.post('/bookings/:bookingId/chat/:id/message', secure.isAuthenticated, chat.newMessage)
-router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.getAll)
+router.post('/bookings/:bookingId/chats', secure.isAuthenticated, chat.create)
+router.get('/bookings/:bookingId/chats/:id', secure.isAuthenticated, chat.getChat)
+router.post('/bookings/:bookingId/chats/:id/message', secure.isAuthenticated, chat.newMessage)
+//router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.getAll)
+router.get('/profile/my-chats', secure.isAuthenticated, chat.getAll)
+//router.get('/users/me/chats')
 
 //Event
 router.post('/events', secure.isAuthenticated, upload.single('image'), events.create)

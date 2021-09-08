@@ -1,0 +1,6 @@
+.chat-item .avatar{
+    max-width: 74px;
+}
+.chat-item {
+    display: flex;
+}

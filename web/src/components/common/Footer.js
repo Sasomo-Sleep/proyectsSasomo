@@ -8,7 +8,7 @@ function Footer() {
                 <Link to="/"><p>Today</p></Link>
             </div>
             <div>
-                <Link to="/"> <p>Messages</p></Link>
+                <Link to="/profile/my-chats"> <p>Messages</p></Link>
             </div>
             <div>
                 <Link to="/"> <p>Calendar</p></Link>

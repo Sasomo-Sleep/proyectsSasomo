@@ -6,8 +6,8 @@ import Login from './components/auth/Login';
 import Profile from './components/host/user/Profile';
 import Logout from './components/auth/Logout';
 import Footer from './components/common/Footer';
-import Menu from './components/host/menu/Menu';
-
+import Menu from './components/host/buttons/menu/Menu'
+import ChatList from './components/host/buttons/messages/ChatList';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         {/* profile */}
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/menu" component={Menu} />
+        <Route exact path="/profile/my-chats" component={ChatList} />
       </Switch>
       <Footer />
     </div>

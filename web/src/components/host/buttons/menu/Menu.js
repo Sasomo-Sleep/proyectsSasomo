@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { AuthContext } from '../../../../contexts/AuthContext';
 import './Menu.css'
 import { useHistory } from 'react-router';
-import service from '../../../services/sasomo-service';
+import service from '../../../../services/sasomo-service';
 
 function Menu() {
 
@@ -26,8 +26,8 @@ function Menu() {
             <h1>Menu</h1>
             <span >HOST</span>
             <div className="advert">
-                {auth.user.properties.map(property => <img src={property.images[0]} alt={property.id} />)}
-                {auth.user.properties.map(property => <h4 key={property.id}> {property.name} </h4>)}
+                {auth.user.properties.map(property => <img src={property.images[0]} alt={property.id} key={property.id}/>)}
+                {auth.user.properties.map(property => <h4 key={property.id}> {property.name[0]} </h4>)}
             </div>
             <div className="mt-3 ">
                 <p>Guides</p>
@@ -48,7 +48,7 @@ function Menu() {
                 <hr />
             </div>
 
-            <button> Use as a guest</button>
+            <button> Use as guest</button>
             <button onClick={handleLogout}> Log Out</button>
         </div>
     )

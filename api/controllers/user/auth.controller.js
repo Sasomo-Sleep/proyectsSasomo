@@ -38,8 +38,26 @@ module.exports.login = (req, res, next) => {
 
 module.exports.get = (req, res, next) => {
     User.findById(req.user.id)
+        .populate({
+            path: 'bookings',
+            populate: {
+                path: 'property',
+                select: 'images name description'
+            }
+        })
         .populate('properties')
-        .populate('bookings')
+        .populate({
+            path: 'chats',
+            populate:[ 
+                {
+                    path: 'users',
+                    select: 'name'
+                },
+                {
+                    path: 'messages',
+                }
+            ]
+        })
         .then(user => {
             res.status(200).json(user)
         })
@@ -64,8 +82,11 @@ module.exports.delete = (req, res, next) => {
 }
 
 module.exports.update = (req, res, next) => {
-    const id = req.user.id
-    User.findByIdAndUpdate(id, req.body, { new: true })
+    const user = req.user
+    const data = req.body
+    user.avatar = req.file.path
+    Object.assign(user, data)
+    user.save()
         .then(user => res.status(202).json(user))
         .catch(next)
 }
