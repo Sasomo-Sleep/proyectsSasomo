@@ -10,9 +10,10 @@ function ChatItem({ users, id }) {
     const auth = useContext(AuthContext)
     const history = useHistory()
     const userId = users.find(user => user.id !== auth.user?.id)
-    
+
     const handleGetChat = () => {
         history.push(`/chats/${id}`)
+        console.log(id, "ceporro")
     }
 
     return (

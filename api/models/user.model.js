@@ -63,7 +63,8 @@ const userSchema = new Schema({
             delete ret.password;
             ret.bookings = doc.bookings || []
             ret.properties = doc.properties || []
-
+            ret.propertiesBookings = doc.propertiesBookings || []
+            
             return ret
         }
     },
@@ -77,7 +78,12 @@ const userSchema = new Schema({
         }
     }
 })
-
+userSchema.virtual('propertiesBookings', {
+    ref: 'Booking',
+    localField: '_id',
+    foreignField: 'propertyOwner',
+    justOne: false
+})
 
 userSchema.virtual('bookings', {
     ref: 'Booking',

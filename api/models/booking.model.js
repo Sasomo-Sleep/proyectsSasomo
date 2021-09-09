@@ -31,6 +31,10 @@ const bookingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    propertyOwner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     chats: [{
         type: Schema.Types.ObjectId,
         ref: 'Chat'
@@ -41,6 +45,7 @@ const bookingSchema = new Schema({
         ref: 'Review'
     }
 }, {
+    virtuals: true,
     timestamps: true,
     toJSON: {
         virtuals: true,
@@ -63,7 +68,12 @@ const bookingSchema = new Schema({
         }
     }
 })
-
+bookingSchema.virtual('properties', {
+    ref: 'Property',
+    localField: '_id',
+    foreignField: 'owner',
+    justOne: false
+});
 
 const Booking = mongoose.model('Booking', bookingSchema)
 

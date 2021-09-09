@@ -11,6 +11,8 @@ const Property = require('../../models/property.model')
 
 module.exports.list = (req, res, next) => {
     Booking.find({ guest: req.user.id })
+        .populate('guest')
+        .populate('property')
         .then(bookings => res.json(bookings))
         .catch(next)
 }
@@ -54,16 +56,13 @@ module.exports.delete = (req, res, next) => {
 module.exports.create = (req, res, next) => {
     Property.findById(req.params.propertyId)
         .then(property => {
-            console.log(property)
             return Booking.create({ ...req.body, guest: req.user.id })
                 .then(booking => {
-                    console.log(property.owner, "2")
                     return Chat.create({ users: [booking.guest, property.owner] })
                         .then(chat => res.json(booking))
                 })
         })
         .catch(next)
 }
-//cassssssssssiii lo tengo!!1
 
 

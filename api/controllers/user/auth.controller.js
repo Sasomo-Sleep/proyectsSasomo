@@ -45,6 +45,14 @@ module.exports.get = (req, res, next) => {
                 select: 'images name description'
             }
         })
+        .populate({
+            path: 'propertiesBookings',
+            /* match: { checkOut: { $gte: 21 } } */
+            populate: {
+                path: 'property',
+                select: 'images name description'
+            }
+        })
         .populate('properties')
         .populate({
             path: 'chats',
