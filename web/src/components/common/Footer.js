@@ -5,7 +5,7 @@ function Footer() {
     return (
         <div id="nav-bottom" className="">
             <div>
-                <Link to="/"><p>Today</p></Link>
+                <Link to="/profilee"><p>Today</p></Link>
             </div>
             <div>
                 <Link to="/profile/my-chats"> <p>Messages</p></Link>

@@ -9,6 +9,7 @@ import Menu from './components/host/buttons/menu/Menu'
 import ChatList from './components/host/buttons/messages/ChatList';
 import ChatDetail from './components/host/buttons/messages/ChatDetail';
 import SignUp from './components/auth/SingUp';
+import Today from './components/host/buttons/today/Today';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/profile/my-chats" component={ChatList} />
         <Route exact path="/chats/:id" component={ChatDetail} />
+        <Route exact path="/profilee" component={Today} />
+
       </Switch>
       <Footer />
     </div>

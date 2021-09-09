@@ -56,6 +56,7 @@ module.exports.delete = (req, res, next) => {
 module.exports.create = (req, res, next) => {
     Property.findById(req.params.propertyId)
         .then(property => {
+            //TODO: validar que la propiedad no tiene ninguna validacion
             return Booking.create({ propertyOwner: property.owner, ...req.body, guest: req.user.id })
                 .then(booking => {
                     return Chat.create({ users: [booking.guest, property.owner] })

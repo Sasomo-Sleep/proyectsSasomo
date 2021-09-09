@@ -38,19 +38,19 @@ module.exports.getAll = (req, res, next) => {
 }
 
 module.exports.newMessage = (req, res, next) => {
-
     Chat.findById(req.params.id)
         .then(chat => {
-            return Message.create({
-                message: req.body.message,
-                user: req.user.id
-            })
-                .then(message => {
-                    chat.messages.push(message);
-                    chat.save();
-                    res.json(chat)
-
+            if (!chat) {
+                next()
+            } else {
+                return Message.create({
+                    user: req.user.id,
+                    meesage: req.body.message,
+                    chat: req.params.id
                 })
+                    .then(message => res.status(200).json(message))
+            }
         })
         .catch(next)
 }
+
