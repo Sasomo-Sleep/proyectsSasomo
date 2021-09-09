@@ -78,14 +78,16 @@ const userSchema = new Schema({
         }
     }
 })
-userSchema.virtual('propertiesBookings', {
+
+
+userSchema.virtual('hostBookings', {
     ref: 'Booking',
     localField: '_id',
     foreignField: 'propertyOwner',
     justOne: false
-})
+});
 
-userSchema.virtual('bookings', {
+userSchema.virtual('guestBookings', {
     ref: 'Booking',
     localField: '_id',
     foreignField: 'guest',

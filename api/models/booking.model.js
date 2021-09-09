@@ -68,6 +68,8 @@ const bookingSchema = new Schema({
         }
     }
 })
+
+
 bookingSchema.virtual('properties', {
     ref: 'Property',
     localField: '_id',

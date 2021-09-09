@@ -39,14 +39,14 @@ module.exports.login = (req, res, next) => {
 module.exports.get = (req, res, next) => {
     User.findById(req.user.id)
         .populate({
-            path: 'bookings',
+            path: 'guestBookings',
             populate: {
                 path: 'property',
                 select: 'images name description'
             }
         })
         .populate({
-            path: 'propertiesBookings',
+            path: 'hostBookings',
             /* match: { checkOut: { $gte: 21 } } */
             populate: {
                 path: 'property',

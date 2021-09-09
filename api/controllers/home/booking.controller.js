@@ -56,7 +56,7 @@ module.exports.delete = (req, res, next) => {
 module.exports.create = (req, res, next) => {
     Property.findById(req.params.propertyId)
         .then(property => {
-            return Booking.create({ ...req.body, guest: req.user.id })
+            return Booking.create({ propertyOwner: property.owner, ...req.body, guest: req.user.id })
                 .then(booking => {
                     return Chat.create({ users: [booking.guest, property.owner] })
                         .then(chat => res.json(booking))
