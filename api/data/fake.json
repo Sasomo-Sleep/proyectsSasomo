@@ -1,0 +1,58 @@
+[
+    {
+        "users": [
+            {
+                "idioms": [
+                    "Spanish",
+                    "English"
+                ],
+                "reviews": [],
+                "interests": [
+                    "Museum",
+                    "Night-life"
+                ],
+                "email": "lola@gmail.com",
+                "name": "Lola",
+                "avatar": "https://res.cloudinary.com/djtlrhrkm/image/upload/v1631113417/ih-remote-test/riwq8cyql1us9llmsldj.jpg",
+                "createdAt": "2021-09-08T15:01:06.764Z",
+                "updatedAt": "2021-09-08T15:10:15.544Z",
+                "about": "I'm happy adventure",
+                "birthday": "12/07/1995",
+                "city": "Madrid, Spain",
+                "identyCard": "238572332 B",
+                "phone": 685963584,
+                "id": "6138d0326711e8289c0e547c",
+                "bookings": [],
+                "properties": []
+            },
+            {
+                "idioms": [
+                    "French",
+                    "English"
+                ],
+                "reviews": [],
+                "interests": [
+                    "Museum",
+                    "Night-life"
+                ],
+                "name": "Edgar",
+                "email": "edgar@gmail.com",
+                "avatar": "https://res.cloudinary.com/djtlrhrkm/image/upload/v1631116457/ih-remote-test/yii7lc0ybwskktdb5w2b.jpg",
+                "createdAt": "2021-09-08T15:45:33.502Z",
+                "updatedAt": "2021-09-08T15:55:31.444Z",
+                "about": "I love to meet new people adventure",
+                "birthday": "12/07/1996",
+                "city": "Paris, France",
+                "identyCard": "85968542 c",
+                "phone": 685493584,
+                "id": "6138da9dd904d52ae71c56c1",
+                "bookings": [],
+                "properties": []
+            }
+        ],
+        "messages": [],
+        "createdAt": "2021-09-08T18:05:35.667Z",
+        "updatedAt": "2021-09-08T18:05:35.667Z",
+        "id": "6138fb6fb7776938bed0ef1b"
+    }
+]

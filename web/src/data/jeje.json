@@ -1,0 +1,125 @@
+[
+    {
+        "users": [
+            {
+                "idioms": [
+                    "French",
+                    "Spanish"
+                ],
+                "reviews": [],
+                "interests": [
+                    "Museum"
+                ],
+                "messages": [],
+                "email": "lola@gmail.com",
+                "name": "Lolita",
+                "avatar": "https://res.cloudinary.com/djtlrhrkm/image/upload/v1631104941/ih-remote-test/tvsijpqrcmotfaoxeoww.jpg",
+                "createdAt": "2021-09-07T20:59:02.645Z",
+                "updatedAt": "2021-09-08T12:42:21.507Z",
+                "about": "I'm happy adventure",
+                "city": "Valencia, Spain",
+                "identyCard": "233322332 T",
+                "phone": 34366455658,
+                "birthday": "12/12/2020",
+                "id": "6137d2966861694c7ba08451",
+                "bookings": [],
+                "properties": []
+            },
+            {
+                "idioms": [
+                    "French",
+                    "Spanish"
+                ],
+                "reviews": [],
+                "interests": [
+                    "Museum"
+                ],
+                "email": "nacho@gmail.com",
+                "name": "Nacho",
+                "avatar": "https://res.cloudinary.com/djtlrhrkm/image/upload/v1631104810/ih-remote-test/fkt2m7sdehibkoq52ifa.jpg",
+                "createdAt": "2021-09-08T09:36:05.528Z",
+                "updatedAt": "2021-09-08T12:40:10.958Z",
+                "about": "I'm happy adventure",
+                "birthday": "12/12/2020",
+                "city": "Valencia, Spain",
+                "identyCard": "233322332 T",
+                "phone": 34366455658,
+                "id": "61388405f336550dac4da226",
+                "bookings": [],
+                "properties": []
+            }
+        ],
+        "messages": [
+            {
+                "message": "Hi, I'd like to enjoy your flat, I've thah is very close to the places that We want to visit! ",
+                "user": "6137d2966861694c7ba08451",
+                "createdAt": "2021-09-08T10:23:59.238Z",
+                "updatedAt": "2021-09-08T10:23:59.238Z",
+                "id": "61388f3fd41c2012f5d23b33"
+            },
+            {
+                "message": "Hi, I'd like to enjoy your flat, I've thah is very close to the places that We want to visit! ",
+                "user": "6137d2966861694c7ba08451",
+                "createdAt": "2021-09-08T10:24:20.842Z",
+                "updatedAt": "2021-09-08T10:24:20.842Z",
+                "id": "61388f54d41c2012f5d23b39"
+            }
+        ],
+        "createdAt": "2021-09-08T10:23:48.990Z",
+        "updatedAt": "2021-09-08T10:24:20.846Z",
+        "id": "61388f34d41c2012f5d23b2f"
+    },
+    {
+        "users": [
+            {
+                "idioms": [
+                    "French",
+                    "Spanish"
+                ],
+                "reviews": [],
+                "interests": [
+                    "Museum"
+                ],
+                "email": "nacho@gmail.com",
+                "name": "Nacho",
+                "avatar": "https://res.cloudinary.com/djtlrhrkm/image/upload/v1631104810/ih-remote-test/fkt2m7sdehibkoq52ifa.jpg",
+                "createdAt": "2021-09-08T09:36:05.528Z",
+                "updatedAt": "2021-09-08T12:40:10.958Z",
+                "about": "I'm happy adventure",
+                "birthday": "12/12/2020",
+                "city": "Valencia, Spain",
+                "identyCard": "233322332 T",
+                "phone": 34366455658,
+                "id": "61388405f336550dac4da226",
+                "bookings": [],
+                "properties": []
+            },
+            {
+                "idioms": [],
+                "reviews": [],
+                "interests": [],
+                "messages": [],
+                "email": "edgar@gmail.com",
+                "name": "edgar",
+                "avatar": "/logo192.png",
+                "createdAt": "2021-09-07T22:00:02.642Z",
+                "updatedAt": "2021-09-07T22:00:02.642Z",
+                "id": "6137e0e20451df53551126d2",
+                "bookings": [],
+                "properties": []
+            }
+        ],
+        "messages": [
+            {
+                "message": "Hi, I'd like to enjoy your flat, we are gonna visit Budapest! ",
+                "user": "61388405f336550dac4da226",
+                "createdAt": "2021-09-08T11:45:49.764Z",
+                "updatedAt": "2021-09-08T11:45:49.764Z",
+                "id": "6138a26d3ea9ff1374b6f04d"
+            }
+        ],
+        "createdAt": "2021-09-08T11:44:43.203Z",
+        "updatedAt": "2021-09-08T11:45:49.770Z",
+        "id": "6138a22b3ea9ff1374b6f049"
+    }
+]

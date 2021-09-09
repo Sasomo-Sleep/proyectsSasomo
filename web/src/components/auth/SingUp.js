@@ -1,13 +1,13 @@
 import { useHistory } from 'react-router'
 import service from '../../services/sasomo-service';
 
-function SingUp() {
+function SignUp() {
     const history = useHistory()
 
     function handleSubmit(ev) {
         ev.preventDefault()
 
-        service.singUp({
+        service.signUp({
             name: ev.target.name.value,
             email: ev.target.email.value,
             password: ev.target.password.value
@@ -40,4 +40,4 @@ function SingUp() {
     )
 }
 
-export default SingUp
+export default SignUp

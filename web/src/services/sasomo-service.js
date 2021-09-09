@@ -1,21 +1,25 @@
 import http from './base-api-service'
 
 //auth
-const singUp = (user) => http.post('/singup', user)
+const signUp = (user) => http.post('/signUp', user)
 const login = (email, password) => http.post('/login', { email, password })
 const logout = () => http.post('/logout')
 
 //panel principal
 const profile = () => http.get('/profile')
-const getChats = () => http.get('/profile/my-chats')
 
+const getChats = () => http.get('/profile/my-chats')
+const getChat = (id) => http.get(`/chats/${id}`)
+const message = (id) => http.post(`/chats/${id}/message`)
 
 const service = {
-    singUp,
+    signUp,
     login,
     logout,
     profile,
-    getChats
+    getChats,
+    getChat,
+    message
 
 }
 

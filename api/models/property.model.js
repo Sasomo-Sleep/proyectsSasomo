@@ -53,7 +53,7 @@ const propertySchema = new Schema({
 
 propertySchema.virtual('likes', {
     ref: 'Like',
-    localField: 'id',
+    localField: '_id',
     foreignField: 'propertyId',
     justOne: false
 });

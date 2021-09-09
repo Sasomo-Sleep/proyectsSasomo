@@ -32,7 +32,7 @@ function Profile() {
                 <p> <i className="fas fa-quote-left"></i></p>
                 <h6> {auth.user.about}</h6>
                 <p> Live in {auth.user.city}</p>
-                <div clasName="pp">
+                <div className="app">
                     {auth.user.idioms.map(idiom => <span key={idiom}>{idiom}</span>)}
                 </div>
                 <hr />

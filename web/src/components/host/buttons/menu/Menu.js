@@ -18,7 +18,6 @@ function Menu() {
             .catch(err => console.error(err))
     }
     if (!auth.user) {
-        console.log("NO user")
         return <> </>
     }
     return (
@@ -27,7 +26,7 @@ function Menu() {
             <span >HOST</span>
             <div className="advert">
                 {auth.user.properties.map(property => <img src={property.images[0]} alt={property.id} key={property.id}/>)}
-                {auth.user.properties.map(property => <h4 key={property.id}> {property.name[0]} </h4>)}
+                {auth.user.properties.map(property => <h4 key={property.id}> {property.name} </h4>)}
             </div>
             <div className="mt-3 ">
                 <p>Guides</p>

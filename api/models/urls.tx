@@ -1,4 +1,4 @@
-POST /singup { model’s properties } -> 201 user
+POST /signUp { model’s properties } -> 201 user
 POST /login -> 200 user
 POST /logout, isAuthenticated, -> No content 204
 

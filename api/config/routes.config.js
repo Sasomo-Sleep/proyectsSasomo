@@ -17,7 +17,7 @@ const events = require('../controllers/event/event.controller')
 const router = express.Router();
 
 //auth
-router.post('/singup', auth.create)
+router.post('/signUp', auth.create)
 router.post('/login', auth.login)
 router.post('/logout', secure.isAuthenticated, auth.logout)
 
@@ -34,7 +34,7 @@ router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists,
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
 
 //Booking
-router.post('/bookings', secure.isAuthenticated, bookings.create)
+router.post('/properties/:propertyId/bookings', secure.isAuthenticated, bookings.create)
 router.get('/bookings', secure.isAuthenticated, bookings.list)
 router.get('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.detail)
 router.delete('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.delete)
@@ -49,10 +49,13 @@ router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create
 router.get('/likes', secure.isAuthenticated, likes.propertiesLiked)
 
 //Chat
-router.post('/bookings/:bookingId/chats', secure.isAuthenticated, chat.create)
-router.get('/bookings/:bookingId/chats/:id', secure.isAuthenticated, chat.getChat)
-router.post('/bookings/:bookingId/chats/:id/message', secure.isAuthenticated, chat.newMessage)
+//router.post('/bookings/:bookingId/chats', secure.isAuthenticated, chat.create)
+//router.get('/bookings/:bookingId/chats/:id', secure.isAuthenticated, chat.getChat)
+router.post('/chats/:id/message', secure.isAuthenticated, chat.newMessage)
+router.get('/chats/:id', secure.isAuthenticated, chat.getChat)
+
 //router.get('/bookings/:bookingId/my-messages', secure.isAuthenticated, chat.getAll)
+//router.get('/chats/:id', secure.isAuthenticated, chat.getChat)
 router.get('/profile/my-chats', secure.isAuthenticated, chat.getAll)
 //router.get('/users/me/chats')
 

@@ -1,10 +1,13 @@
 const Booking = require('../../models/booking.model')
+const Chat = require('../../models/chat/chat.model')
+const Property = require('../../models/property.model')
 
-module.exports.create = (req, res, next) => {
+/* module.exports.create = (req, res, next) => {
     Booking.create({ ...req.body, guest: req.user.id })
         .then(booking => res.status(200).json(booking))
         .catch(next)
 }
+ */
 
 module.exports.list = (req, res, next) => {
     Booking.find({ guest: req.user.id })
@@ -21,3 +24,46 @@ module.exports.delete = (req, res, next) => {
         .then(() => res.status(200).send())
         .catch()
 }
+
+/* module.exports.create = (req, res, next) => {
+    Property.findById(req.params.propertyId)
+        .then(property => {
+            console.log('eee')
+            return Booking.findOne()
+                .populate('property')
+                .then(booking => {
+                    if (booking) {
+                        res.json(booking)
+                    } else {
+                        return Booking.create({ ...req.body, guest: req.user.id })
+                            .then(booking => {
+                                console.log(booking.property.owner, "2")
+                                return Chat.create({ users: [booking.guest, booking.property.owner] })
+                                    .then(chat => res.json(booking))
+                            })
+                    }
+                })
+        })
+        .catch(next)
+} */
+
+
+
+
+
+module.exports.create = (req, res, next) => {
+    Property.findById(req.params.propertyId)
+        .then(property => {
+            console.log(property)
+            return Booking.create({ ...req.body, guest: req.user.id })
+                .then(booking => {
+                    console.log(property.owner, "2")
+                    return Chat.create({ users: [booking.guest, property.owner] })
+                        .then(chat => res.json(booking))
+                })
+        })
+        .catch(next)
+}
+//cassssssssssiii lo tengo!!1
+
+
