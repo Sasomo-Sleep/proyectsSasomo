@@ -8,16 +8,16 @@ function Today() {
 
     const auth = useContext(AuthContext)
 
-    console.log(auth.user?.guestBookings[0].property.owner.name)
+    console.log(auth.user, "ooooli")
 
-     if (!auth.user) return <> </>
+    if (!auth.user) return <> </>
     return (
-        <div>
-           {/*  {auth.user.guestBookings.owner.map( one => 
-                <p>{one.name}</p> 
-            )} */}
-
-            <p>{auth.user?.guestBookings[0].property.owner.name}</p>
+        <div className=" m-4">
+            <img src={auth.user?.guestBookings[0].property.owner.avatar}
+                alt={auth.user?.guestBookings[0].property.owner.name} />
+            <div>
+                <p>{auth.user?.guestBookings[0].property.owner.name}</p>
+            </div>
         </div>
     )
 }
