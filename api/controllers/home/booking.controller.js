@@ -9,10 +9,11 @@ const Property = require('../../models/property.model')
 }
  */
 
-module.exports.list = (req, res, next) => {
+module.exports.listmines = (req, res, next) => {
     Booking.find({ guest: req.user.id })
         .populate('guest')
         .populate('propertyOwner')
+        .populate('property')
         .then(bookings => res.json(bookings))
         .catch(next)
 }
@@ -21,6 +22,14 @@ module.exports.hostDetails = (req, res, next) => {
     Booking.find({ propertyOwner: req.user.id, _id: req.params.bookingId })
         .populate('guest')
         .populate('propertyOwner')
+        .populate('property')
+       /*  .populate({
+            path: 'properties',
+            populate: {  //no  va
+                path: 'property',
+                select: ' price'
+            }
+        }) */
         .then(bookings => res.json(bookings))
         .catch(next)
 }

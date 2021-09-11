@@ -35,7 +35,7 @@ router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists
 
 //Booking
 router.post('/properties/:propertyId/bookings', secure.isAuthenticated, bookings.create)
-router.get('/bookings', secure.isAuthenticated, bookings.list)//guest
+router.get('/bookings', secure.isAuthenticated, bookings.listmines)//guest
 router.get('/bookings/:bookingId', secure.isAuthenticated, bookings.detail)
 router.delete('/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.delete)
 router.get('/host/bookings/:bookingId', secure.isAuthenticated, booking.exists, bookings.hostDetails)//host
