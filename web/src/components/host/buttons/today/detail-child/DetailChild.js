@@ -2,15 +2,16 @@ import { useContext } from "react"
 import './DetailChild.css'
 import moment from 'moment'
 import { Link } from "react-router-dom"
-function DetailChild({ checkIn, checkOut, guest, guestClass, property,createdAt ,id}) {
+function DetailChild({ checkIn, checkOut, guest, guestsClass, property,createdAt ,id}) {
 
 console.log(id, "id")
+    const numberOfGuest = guestsClass?.reduce((amount, guestsClass) =>  guestsClass.quantity + amount, 0)
     return (
         <div>
             <div className="header m-4">
                 <div className="">
                     <p>{guest.name}</p>
-                    <span>(num) of guest</span> <span>{property.price}€ Night</span>
+                    <span>{numberOfGuest} of guest</span> <span>{property.price}€ Night</span>
                     <p>{property.name}</p>
                 </div>
                 <div>
@@ -47,7 +48,7 @@ export default DetailChild
 
 
 /*
-{guestClass.map(g => <p> {g.person}  </p>)}
+{guestClass.map(g => <p> {g.quantity}  </p>)}
 xq no va??
 {moment(checkIn).format('MMM Do')}-{moment(checkOut).format('MMM Do')}
 */
