@@ -36,6 +36,8 @@ module.exports.login = (req, res, next) => {
     })(req, res, next)
 }
 
+
+
 module.exports.get = (req, res, next) => {
     User.findById(req.user.id)
         .populate({

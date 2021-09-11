@@ -32,7 +32,7 @@ router.get('/properties', secure.isAuthenticated, properties.list)
 router.get('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.detail)
 router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists, upload.array('images'), properties.edit)
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
-
+//router.get('/properties/search')
 //Booking
 router.post('/properties/:propertyId/bookings', secure.isAuthenticated, bookings.create)
 router.get('/bookings', secure.isAuthenticated, bookings.listmines)//guest
