@@ -14,7 +14,7 @@ function Today() {
         <div className="m-4 ">
             <HeaderHost />
             {auth.user.hostBookings.map(booking =>
-                <Card   {...booking} />
+                <Card   {...booking} key={booking.id}/>
             )}
         </div>
     )

@@ -17,6 +17,14 @@ module.exports.list = (req, res, next) => {
         .catch(next)
 }
 
+module.exports.hostDetails = (req, res, next) => {
+    Booking.find({ propertyOwner: req.user.id, _id: req.params.bookingId })
+        .populate('guest')
+        .populate('propertyOwner')
+        .then(bookings => res.json(bookings))
+        .catch(next)
+}
+
 module.exports.detail = (req, res, next) => {
     res.json(req.booking)
 }

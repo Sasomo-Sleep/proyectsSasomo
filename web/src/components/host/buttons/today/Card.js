@@ -1,29 +1,25 @@
 import './Today.css'
+import moment from 'moment'
+import { Link } from 'react-router-dom'
 
-function Card({ guest }) {
+function Card({ guest, checkIn, checkOut, id}) {
     return (
 
         <div className="cardToday">
-            <div>
-                <p>{guest.name}</p>
-                <p>Cuando llega</p>
-            </div>
-            <div className="d-flex ">
-                <img src={guest.avatar} alt={guest.avatar} />
+            <Link to={`/detail/${id}`}>
+                <div>
+                    <p>Arrives {moment(checkIn).add(1, 'days').calendar()}</p>
+                    <p>{guest.name}</p>
+                    <p>{moment(checkIn).format('MMM Do')}-{moment(checkOut).format('MMM Do')}</p>
+                </div>
+                <div className="d-flex ">
+                    <img src={guest.avatar} alt={guest.avatar} />
 
-            </div>
+                </div>
+            </Link>
         </div>
 
     )
 }
-
+{/*  boton abajo para escribir */ }
 export default Card
-
-{/* <div class="card" >
-            <img src={guest.avatar} class="card-img-top" alt={guest.name}/>
-            <div class ="card-body">
-            <h5 class ="card-title">{guest.name}</h5>
-            <a href="#" class ="btn btn-primary">Go somewhere</a>
-            </div>
-            
-        </div> */}

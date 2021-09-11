@@ -11,20 +11,18 @@ function ChatItem({ users, id }) {
     const history = useHistory()
     const userId = users.find(user => user.id !== auth.user?.id)
 
-    const handleGetChat = () => {
-        history.push(`/chats/${id}`)
-        console.log(id, "ceporro")
-    }
-
     return (
         <div className="chat-item m-3">
 
             <img src={userId.avatar} alt={userId.name} className="avatar align-self-start  w-100 rounded-circle me-3" />
             <div>
-                <p className="m-0 text-muted">{userId.name}</p>
-                {auth.user.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name} </p>)}
+                <Link to={`/chats/${id}`}>
+                    <p className="m-0 text-muted">{userId.name}</p>
+                    {auth.user.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name} </p>)}
+                </Link>
+
             </div>
-            <button onClick={handleGetChat}>ver chat</button>
+           
         </div>
     )
 }
