@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import React, { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext';
 import moment from 'moment'
@@ -9,11 +9,10 @@ function Profile() {
     if (!auth.user || !auth.user) {
         return <> </>
     }
-    console.log(auth.user, "heeeee")
     return (
         <div className="profile1 my-5 mx-2">
+                <Link to="/profile/edit"><p className=" d-flex justify-content-end"> edit</p></Link>
             <div className="me-auto d-flex ">
-
                 <div className="col-6">
                     <h1 > Hi, I'm {auth.user.name}</h1>
                     <span> {auth.user.name} joins {moment(auth.user.createAt).format("MMM Do YY")}</span>
@@ -24,7 +23,7 @@ function Profile() {
                 </div>
 
                 <div className="col-4">
-                    <img className="avatar align-self-start img-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user.name} />
+                    <img className="avatar align-self-start img-fluid  rounded-circle me-3" src={auth.user.avatar} alt={auth.user.name} />
                 </div>
             </div>
             <div className="profile">

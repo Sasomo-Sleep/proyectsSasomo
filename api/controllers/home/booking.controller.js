@@ -12,7 +12,7 @@ const Property = require('../../models/property.model')
 module.exports.list = (req, res, next) => {
     Booking.find({ guest: req.user.id })
         .populate('guest')
-        .populate('property')
+        .populate('propertyOwner')
         .then(bookings => res.json(bookings))
         .catch(next)
 }

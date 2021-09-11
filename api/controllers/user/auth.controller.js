@@ -55,6 +55,13 @@ module.exports.get = (req, res, next) => {
                 select: 'images name description '
             }
         })
+        .populate({
+            path: 'hostBookings',
+            populate: {
+                path: 'guest',
+                select: ' name avatar  '
+            }
+        })
         .populate('properties')
         .populate({
             path: 'chats',
