@@ -34,14 +34,3 @@ module.exports.propertiesLiked = (req, res, next) => {
         .catch(next)
 }
 
-/* module.exports.propertiesLiked = (req, res, next) => {
-
-    Like.find({ userId: req.user.id })
-        .populate('propertyId')  --------------> falta esto jeje
-        .populate('userId')
-        .then(properties => {
-            properties.map()
-            res.json(properties)
-        })
-        .catch(next)
-} */

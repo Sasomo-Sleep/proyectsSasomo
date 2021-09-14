@@ -11,7 +11,7 @@ import SignUp from './components/auth/SingUp';
 import Today from './components/host/buttons/today/Today';
 import Detail from './components/host/buttons/today/Detail';
 import Footer2 from './components/common/footer2/Footer2';
-
+import MenuGuest from './components/guest/menu/MenuGuest';
 function App() {
   return (
     <div className="container">
@@ -28,6 +28,7 @@ function App() {
         <Route exact path="/chats/:id" component={ChatDetail} />
         <Route exact path="/today" component={Today} />
         <Route exact path="/detail/:id" component={Detail} />
+        <Route exact path="/guest-menu" component={MenuGuest} />
 
       </Switch>
       {/* <Footer /> */}
