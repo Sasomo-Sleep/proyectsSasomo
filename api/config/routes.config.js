@@ -29,11 +29,12 @@ router.delete('/profile', secure.isAuthenticated, auth.delete)
 //property
 router.post('/properties', upload.array('images'), secure.isAuthenticated, properties.create) //no puedo cambiar imagenes desde postman, purqueeee? :()
 router.get('/properties', secure.isAuthenticated, properties.list)
+router.get('/properties/search', secure.isAuthenticated, properties.search) 
 router.get('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.detail)
 router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists, upload.array('images'), properties.edit)
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
 
-router.get('/properties/search', secure.isAuthenticated, properties.search) //------> hay que probarlo jeje
+//------> hay que probarlo jeje
 //router.get('/properties/search')
 //Booking
 router.post('/properties/:propertyId/bookings', secure.isAuthenticated, bookings.create)

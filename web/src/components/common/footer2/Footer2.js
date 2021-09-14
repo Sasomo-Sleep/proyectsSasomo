@@ -9,7 +9,7 @@ const Footer2 = () => {
                 <Link to="/explore"><p>Explore</p></Link>
             </div>
             <div>
-                <Link to="/properties/favs"> <p>Favs</p></Link>
+                <Link to="/properties-liked"> <p>Favs</p></Link>
             </div>
             <div>
             <div>

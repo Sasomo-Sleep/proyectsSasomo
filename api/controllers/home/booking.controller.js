@@ -83,5 +83,3 @@ module.exports.create = (req, res, next) => {
         .catch(next)
 }
 
-
-module.exports.allProperties 

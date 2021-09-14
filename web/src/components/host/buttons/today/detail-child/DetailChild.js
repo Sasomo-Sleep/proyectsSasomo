@@ -1,4 +1,3 @@
-import { useContext } from "react"
 import './DetailChild.css'
 import moment from 'moment'
 import { Link } from "react-router-dom"
@@ -47,8 +46,3 @@ console.log(id, "id")
 export default DetailChild
 
 
-/*
-{guestClass.map(g => <p> {g.quantity}  </p>)}
-xq no va??
-{moment(checkIn).format('MMM Do')}-{moment(checkOut).format('MMM Do')}
-*/

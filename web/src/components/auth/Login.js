@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router';
-import service from '../../services/sasomo-service';
+import React, { useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react'
 
 function Login() {
-    const history = useHistory()
     const auth = useContext(AuthContext)
     const [data, setData] = useState({
         email: '',

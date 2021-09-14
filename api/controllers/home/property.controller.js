@@ -25,8 +25,13 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.detail = (req, res, next) => {
-    res.json(req.property)
+    Property.findById(req.params.propertyId)
+        .populate('owner')
+        .then(property => res.json(property))
+        .catch(next)
+
 }
+
 
 module.exports.edit = (req, res, next) => {
 
@@ -54,29 +59,35 @@ module.exports.delete = (req, res, next) => {
 
 
 module.exports.search = (req, res, next) => {
-
-    const { search } = req.query
+    console.log('entro')
+    const { checkIn, checkOut, location } = req.query
     const criterial = {}
-    if (search) {
-        criterial.location = { $in: [search] }
-    }
-    const filteredProperties = [];
 
-    Property.find(criterial)
+    if (location) {
+        criterial.location = location
+    }
+
+    const bookingCriterial = 
+    Property.find()
         .then(properties => {
             properties.map(property => {
                 return Booking.find({
-                    checkIn: { $gte: ISODate(checkIn), $lt: ISODate(checkIn) },
-                    checkOut: { $gte: ISODate(checkOut), $lt: ISODate(checkOut) },
-                    property: property.id
-                })
+                        checkIn: { $gte: new Date(checkIn), $lt: new Date(checkIn) },
+                        checkOut: { $gte: new Date(checkOut), $lt: new Date(checkOut) }, 
+                        property: property.id
+                    }
+                )
                     .then(bookings => {
-                        if (booking.length == 0) {
-                            propertiesFiltered.push(property)
+                        if (bookings) {
+                            const filteredProperties = properties.filter((property, i) => {
+                                return bookings.some(booking => booking.property !== property.id )
+                             })
+                             res.json(bookings)
                         } else {
                             next()
                         }
                     })
+                    .catch(next)
             })
         })
         .catch(next)

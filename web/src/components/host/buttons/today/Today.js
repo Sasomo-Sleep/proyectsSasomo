@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { AuthContext } from "../../../../contexts/AuthContext"
 import HeaderHost from "../../../common/header/HeaderHost"
 import Card from "./Card"
@@ -6,8 +6,6 @@ import Card from "./Card"
 function Today() {
 
     const auth = useContext(AuthContext)
-/* <Card   {...booking} key={booking.id}/>
- */    console.log(auth.user, "ooooli")
 
     if (!auth.user) return <> </>
     return (

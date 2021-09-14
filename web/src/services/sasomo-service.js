@@ -13,8 +13,9 @@ const getChat = (id) => http.get(`/chats/${id}`)
 const message = (id, message) => http.post(`/chats/${id}/message`, {message})
 
 //booking
-
 const bookingDetail = (id) => http.get(`/host/bookings/${id}`)
+const homeFavs = () => http.get('/properties-liked')
+const favDetail = (id) => http.get(`/properties/${id}`)
 
 const service = {
     signUp,
@@ -25,7 +26,9 @@ const service = {
     getChat,
     message,
     editProfile,
-    bookingDetail
+    bookingDetail,
+    homeFavs,
+    favDetail
 }
 
 export default service

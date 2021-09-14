@@ -7,11 +7,7 @@ const chatSchema = new Schema({
     users: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    messages: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Message'
-    }],
+    }]
 }, {
     virtuals: true,
     timestamps: true,
@@ -34,10 +30,10 @@ const chatSchema = new Schema({
     }
 })
 
-chatSchema.virtual('messagechat', {
+chatSchema.virtual('messages', {
     ref: 'Message',
     localField: '_id',
-    foreignField: 'messages',
+    foreignField: 'chat',
     justOne: false
 });
 
