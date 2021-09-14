@@ -13,7 +13,7 @@ import Detail from './components/host/buttons/today/DetailFav';
 import Footer2 from './components/common/footer2/Footer2';
 import MenuGuest from './components/guest/menu/MenuGuest';
 import HomesFavs from './components/guest/favs/HomesFavs';
-import DetailFav from './components/guest/favs/detail/DetailFav';
+import DetailFav from './components/guest/favs/DetailFav';
 
 
 function App() {

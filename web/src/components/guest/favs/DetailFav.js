@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import service from '../../../../services/sasomo-service';
-import DetailChild from './DetailChild';
+import service from '../../../services/sasomo-service';
 
 const DetailFav = () => {
     const { id } = useParams()
@@ -30,9 +29,12 @@ const DetailFav = () => {
                 <hr />
             </div>
             <div>
-                <span>{flat.maxGuests} guests</span>  ·   <span>{flat.rooms} rooms</span>  ·   <span>{flat.bathroom} bathrooms</span>   
+                <span>{flat.maxGuests} guests</span>  ·   <span>{flat.rooms} rooms</span>  ·   <span>{flat.bathroom} bathrooms</span>
                 <hr />
                 <p>{flat.description}</p>
+            </div>
+            <div>
+                <p>Aqui tiene que ir el mapa de maps jeje</p>
             </div>
 
         </div>
