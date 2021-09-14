@@ -13,6 +13,7 @@ const chatSchema = new Schema({
         ref: 'Message'
     }],
 }, {
+    virtuals: true,
     timestamps: true,
     toJSON: {
         virtuals: true,
@@ -33,6 +34,12 @@ const chatSchema = new Schema({
     }
 })
 
+chatSchema.virtual('messagechat', {
+    ref: 'Message',
+    localField: '_id',
+    foreignField: 'messages',
+    justOne: false
+});
 
 const Chat = mongoose.model('Chat', chatSchema)
 

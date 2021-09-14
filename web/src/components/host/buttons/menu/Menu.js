@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react';
 import { AuthContext } from '../../../../contexts/AuthContext';
 import './Menu.css'
-import { useHistory } from 'react-router';
 import service from '../../../../services/sasomo-service';
 
 function Menu() {
 
-    const history = useHistory()
     const auth = useContext(AuthContext)
 
     function handleLogout() {

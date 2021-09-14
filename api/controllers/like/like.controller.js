@@ -5,7 +5,7 @@ module.exports.create = (req, res, next) => {
 
     Like.findOne({ propertyId: req.params.propertyId, userId: req.user.id })
         .then(like => {
-            if(!like) {
+            if (!like) {
                 const like = new Like({
                     userId: req.user.id,
                     propertyId: req.params.propertyId
@@ -24,8 +24,12 @@ module.exports.create = (req, res, next) => {
 module.exports.propertiesLiked = (req, res, next) => {
 
     Like.find({ userId: req.user.id })
-        .populate('propertyId')
-        .populate('userId')
+        .populate({
+            path: 'propertyId',
+            populate: {
+                path: 'owner'
+            }
+        })
         .then(likes => res.status(200).json(likes))
         .catch(next)
 }
@@ -36,7 +40,7 @@ module.exports.propertiesLiked = (req, res, next) => {
         .populate('propertyId')  --------------> falta esto jeje
         .populate('userId')
         .then(properties => {
-            properties.map()           
+            properties.map()
             res.json(properties)
         })
         .catch(next)

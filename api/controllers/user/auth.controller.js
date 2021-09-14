@@ -47,7 +47,7 @@ module.exports.get = (req, res, next) => {
                 populate: {
                     path: 'owner'
                 }
-            },
+            }
         })
         .populate({
             path: 'hostBookings',

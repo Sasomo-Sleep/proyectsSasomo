@@ -2,12 +2,12 @@ const Booking = require('../../models/booking.model')
 const Chat = require('../../models/chat/chat.model')
 const Property = require('../../models/property.model')
 
-/* module.exports.create = (req, res, next) => {
+module.exports.create = (req, res, next) => {
     Booking.create({ ...req.body, guest: req.user.id })
         .then(booking => res.status(200).json(booking))
         .catch(next)
 }
- */
+
 
 module.exports.listmines = (req, res, next) => {
     Booking.find({ guest: req.user.id })

@@ -32,6 +32,8 @@ router.get('/properties', secure.isAuthenticated, properties.list)
 router.get('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.detail)
 router.patch('/properties/:propertyId', secure.isAuthenticated, property.exists, upload.array('images'), properties.edit)
 router.delete('/properties/:propertyId', secure.isAuthenticated, property.exists, properties.delete)
+
+router.get('/properties/search', secure.isAuthenticated, properties.search) //------> hay que probarlo jeje
 //router.get('/properties/search')
 //Booking
 router.post('/properties/:propertyId/bookings', secure.isAuthenticated, bookings.create)
@@ -47,7 +49,7 @@ router.delete('/reviews/:reviewId', secure.isAuthenticated, reviews.delete)
 
 //Likes 
 router.post('/properties/:propertyId/like', secure.isAuthenticated, likes.create)
-router.get('/likes', secure.isAuthenticated, likes.propertiesLiked)
+router.get('/properties-liked', secure.isAuthenticated, likes.propertiesLiked)
 
 //Chat
 //router.post('/bookings/:bookingId/chats', secure.isAuthenticated, chat.create)

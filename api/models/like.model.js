@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+require('./user.model')
 
 const likeSchema = new Schema({
 
@@ -12,6 +13,7 @@ const likeSchema = new Schema({
         ref: 'User'
     }
 }, {
+    virtuals: true,
     timestamps: true,
     toJSON: {
         transform: (doc, ret) => {
@@ -32,6 +34,12 @@ const likeSchema = new Schema({
         }
     }
 })
+likeSchema.virtual('guestBookings', {
+    ref: 'Booking',
+    localField: '_id',
+    foreignField: 'guest',
+    justOne: false
+});
 
 const Like = mongoose.model('Like', likeSchema)
 

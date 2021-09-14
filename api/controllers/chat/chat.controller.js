@@ -22,12 +22,44 @@ module.exports.create = (req, res, next) => {
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
         .populate('users')
-        .populate('messages')
+        .populate({
+            path: 'messagechat',
+            populate: {
+                path: 'messages'
+            }
+        })
         .then(chat => res.json(chat))
         .catch(next)
 }
-
-
+/* 
+module.exports.detail = (req, res, next) => {
+    const chatId = req.params.id
+    
+    Message.updateMany({chat: chatId})
+      .then(()=> {
+        return Chat.findOne({_id: chatId})
+          .populate({
+            path: "users",
+            select: "name avatar" 
+          })
+          .populate({
+            path: "messages",
+            populate: {
+              path: "sender",
+              select: "name"
+            }
+          })
+          .then((chat) => {
+            if(chat) {
+              res.json(chat)
+            } else {
+              next(createError(404, "chat not found"))
+            }
+          })
+      })
+      .catch(next)
+  }
+ */
 
 module.exports.getAll = (req, res, next) => {
     Chat.find({ users: req.user.id })

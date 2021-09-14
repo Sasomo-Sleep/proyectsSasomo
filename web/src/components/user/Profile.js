@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import React, { useState, useEffect, useContext } from 'react'
-import { AuthContext } from '../../../contexts/AuthContext';
+import React, { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext';
 import moment from 'moment'
 import './Profile.css'
 
 function Profile() {
+    
     const auth = useContext(AuthContext)
     if (!auth.user || !auth.user) {
         return <> </>
