@@ -2,13 +2,10 @@
 import { useState, useEffect, useContext } from 'react';
 import service from '../../../../services/sasomo-service';
 import ChatItem from './ChatItem';
-import { useHistory } from 'react-router';
-import { AuthContext } from '../../../../contexts/AuthContext';
+
 function ChatList() {
     const [chats, setChats] = useState()
 
-    const auth = useContext(AuthContext)
-    const history = useHistory()
 
 
     useEffect(() => {

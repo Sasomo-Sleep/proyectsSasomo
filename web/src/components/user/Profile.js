@@ -5,14 +5,14 @@ import moment from 'moment'
 import './Profile.css'
 
 function Profile() {
-    
+
     const auth = useContext(AuthContext)
     if (!auth.user || !auth.user) {
         return <> </>
     }
     return (
         <div className="profile1 my-5 mx-2">
-                <Link to="/profile/edit"><p className=" d-flex justify-content-end"> edit</p></Link>
+            <Link to="/profile/edit"><p className=" d-flex justify-content-end"> edit</p></Link>
             <div className="me-auto d-flex ">
                 <div className="col-6">
                     <h1 > Hi, I'm {auth.user.name}</h1>
@@ -49,10 +49,12 @@ function Profile() {
 
             <div className="profile">
                 {auth.user.properties.map(property => <h3 key={property.id}> {property.name} </h3>)}
-                <span>{'media de las reviews'}</span>
+                {auth.user.properties.map(property => <img src={property.images[0]} alt={property.name} key={property.id}/>)}
+
             </div>
 
             <div className="profile">
+                <span>{'media de las reviews'}</span>
                 <h3>{auth.user?.reviews?.length} reviews</h3>
             </div>
         </div>
