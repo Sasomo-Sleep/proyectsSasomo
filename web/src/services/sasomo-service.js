@@ -10,12 +10,14 @@ const profile = () => http.get('/profile')
 const editProfile = () => http.patch('/profile')
 const getChats = () => http.get('/profile/my-chats')
 const getChat = (id) => http.get(`/chats/${id}`)
-const message = (id, message) => http.post(`/chats/${id}/message`, {message})
+const message = (id, message) => http.post(`/chats/${id}/message`, { message })
 
 //booking
 const bookingDetail = (id) => http.get(`/host/bookings/${id}`)
 const homeFavs = () => http.get('/properties-liked')
 const favDetail = (id) => http.get(`/properties/${id}`)
+const allBokings = () => http.get('/bookings')
+
 
 const service = {
     signUp,
@@ -28,7 +30,8 @@ const service = {
     editProfile,
     bookingDetail,
     homeFavs,
-    favDetail
+    favDetail,
+    allBokings
 }
 
 export default service

@@ -36,6 +36,7 @@ const propertySchema = new Schema({
             delete ret._id;
             delete ret.__v;
             delete ret.password;
+            ret.bookings = doc.bookings || []
 
             return ret
         }
@@ -46,6 +47,7 @@ const propertySchema = new Schema({
             delete ret._id;
             delete ret.__v;
             delete ret.password;
+            ret.bookings = doc.bookings || []
             return ret
         }
     }
@@ -55,6 +57,12 @@ propertySchema.virtual('likes', {
     ref: 'Like',
     localField: '_id',
     foreignField: 'propertyId',
+    justOne: false
+});
+propertySchema.virtual('bookings', {
+    ref: 'Booking',
+    localField: '_id',
+    foreignField: 'property',
     justOne: false
 });
 

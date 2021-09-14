@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Profile from './components/user/Profile'
 import Logout from './components/auth/Logout';
-import Footer from './components/common/footer1/Footer'
+/* import Footer from './components/common/footer1/Footer' */
 import Menu from './components/host/buttons/menu/Menu'
 import ChatList from './components/host/buttons/messages/ChatList';
 import ChatDetail from './components/host/buttons/messages/ChatDetail';
@@ -14,6 +14,7 @@ import Footer2 from './components/common/footer2/Footer2';
 import MenuGuest from './components/guest/menu/MenuGuest';
 import HomesFavs from './components/guest/favs/HomesFavs';
 import DetailFav from './components/guest/favs/DetailFav';
+import BookingsList from './components/guest/bookings/BookingsList';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
         {/*  FAVS */}
         <Route exact path="/properties-liked" component={HomesFavs} />
         <Route exact path="/properties/:id" component={DetailFav} />
+
+        {/* BOOKINGS */}
+        <Route exact path="/bookings" component={BookingsList} />
 
       </Switch>
 

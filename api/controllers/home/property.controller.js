@@ -60,40 +60,43 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.search = (req, res, next) => {
     console.log('entro')
-    const { checkIn, checkOut, location } = req.query
+    let { checkIn: searchStart, checkOut: searchEnd, location } = req.query
     const criterial = {}
 
     if (location) {
         criterial.location = location
     }
-
-    const bookingCriterial = 
-    Property.find()
-        .then(properties => {
-            properties.map(property => {
-                return Booking.find({
-                        checkIn: { $gte: new Date(checkIn), $lt: new Date(checkIn) },
-                        checkOut: { $gte: new Date(checkOut), $lt: new Date(checkOut) }, 
-                        property: property.id
-                    }
-                )
-                    .then(bookings => {
-                        if (bookings) {
-                            const filteredProperties = properties.filter((property, i) => {
-                                return bookings.some(booking => booking.property !== property.id )
-                             })
-                             res.json(bookings)
-                        } else {
-                            next()
+        searchStart = new Date(searchStart)
+        searchEnd = new Date(searchEnd)
+        Property.find()
+            .populate({
+                path: 'bookings',
+                match: {
+                    $or: [
+                        {
+                            checkIn: { $lte: searchStart },
+                            checkOut: { $gte: searchStart }
+                        },
+                        {
+                            checkIn: { $lte: searchEnd },
+                            checkOut: { $gte: searchEnd }
+                        },
+                        {
+                            checkIn: { $lte: searchStart },
+                            checkOut: { $gte: searchEnd }
+                        }, 
+                        {
+                            checkIn: { $gte: searchStart },
+                            checkOut: { $lte: searchEnd }
                         }
-                    })
-                    .catch(next)
+                    ]
+                }
             })
-        })
-        .catch(next)
+            .then(properties => {
+                properties = properties.filter(prop => prop.bookings.length === 0)
+                res.json(properties)
+            })
+            .catch(next)
 }
-
-
-
-
+    
 

@@ -64,7 +64,7 @@ const userSchema = new Schema({
             ret.bookings = doc.bookings || []
             ret.properties = doc.properties || []
             ret.propertiesBookings = doc.propertiesBookings || []
-            
+
             return ret
         }
     },
@@ -74,7 +74,12 @@ const userSchema = new Schema({
             delete ret._id;
             delete ret.__v;
             delete ret.password;
+            ret.bookings = doc.bookings || []
+            ret.properties = doc.properties || []
+            ret.propertiesBookings = doc.propertiesBookings || []
+            
             return ret
+
         }
     }
 })
