@@ -10,7 +10,7 @@ const CardFav = ({ propertyId }) => {
                 <div className="cardd__info">
                     <h2>{propertyId?.name}</h2>
                     <h4>{propertyId?.description}</h4>
-                    <h3>{propertyId?.price}€ / Night</h3>
+                    <h3>{propertyId?.price}€ / Night <i className="far fa-heart"></i></h3>
                 </div>
             </div>
         </Link>
