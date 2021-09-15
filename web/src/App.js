@@ -16,6 +16,7 @@ import HomesFavs from './components/guest/favs/HomesFavs';
 import DetailFav from './components/guest/favs/DetailFav';
 import BookingsList from './components/guest/bookings/BookingsList';
 import BookingDetail from './components/guest/bookings/BookingDetail';
+import Explorer from './components/guest/explorer/Explorer';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         {/* BOOKINGS */}
         <Route exact path="/bookings" component={BookingsList} />
         <Route exact path="/bookings/:id" component={BookingDetail} />
+        <Route exact path="/search" component={Explorer} />
       </Switch>
 
       {/* <Footer /> */}

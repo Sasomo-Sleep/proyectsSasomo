@@ -6,7 +6,7 @@ const Footer2 = () => {
     return (
         <div id="nav-bottom" className="">
             <div>
-                <Link to="/explore"><p>Explore</p></Link>
+                <Link to="/search"><p>Explore</p></Link>
             </div>
             <div>
                 <Link to="/properties-liked"> <p>Favs</p></Link>

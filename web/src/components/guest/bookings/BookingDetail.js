@@ -15,7 +15,6 @@ const BookingDetail = () => {
             .catch(console.error)
     }, [id])
 
-    console.log(booking, "kiki")
     if (!booking) return <> </>
     return (
         <div className="m-4 book-detail">

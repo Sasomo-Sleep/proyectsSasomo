@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const User = require('./user.model')
 const Review = require('./review.model')
+const Like = require('./like.model')
 const propertySchema = new Schema({
 
     name: String,
@@ -64,6 +65,11 @@ propertySchema.virtual('bookings', {
     localField: '_id',
     foreignField: 'property',
     justOne: false
+});
+
+propertySchema.pre('remove', function(next) {
+    Like.remove({propertyId: this._id}).exec();
+    next();
 });
 
 const Property = mongoose.model('Property', propertySchema)
