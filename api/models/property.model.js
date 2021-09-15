@@ -36,9 +36,8 @@ const propertySchema = new Schema({
             ret.id = doc._id;
             delete ret._id;
             delete ret.__v;
-            delete ret.password;
             ret.bookings = doc.bookings || []
-
+            ret.location = doc.location.coordinates.reverse()
             return ret
         }
     },
@@ -47,7 +46,6 @@ const propertySchema = new Schema({
             ret.id = doc._id;
             delete ret._id;
             delete ret.__v;
-            delete ret.password;
             ret.bookings = doc.bookings || []
             return ret
         }
