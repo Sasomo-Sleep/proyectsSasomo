@@ -15,6 +15,7 @@ import MenuGuest from './components/guest/menu/MenuGuest';
 import HomesFavs from './components/guest/favs/HomesFavs';
 import DetailFav from './components/guest/favs/DetailFav';
 import BookingsList from './components/guest/bookings/BookingsList';
+import BookingDetail from './components/guest/bookings/BookingDetail';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
 
         {/* BOOKINGS */}
         <Route exact path="/bookings" component={BookingsList} />
-
+        <Route exact path="/bookings/:id" component={BookingDetail} />
       </Switch>
 
       {/* <Footer /> */}

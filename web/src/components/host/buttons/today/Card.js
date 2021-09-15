@@ -21,5 +21,4 @@ function Card({ guest, checkIn, checkOut, id}) {
 
     )
 }
-{/*  boton abajo para escribir */ }
 export default Card

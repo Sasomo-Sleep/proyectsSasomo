@@ -23,19 +23,28 @@ module.exports.hostDetails = (req, res, next) => {
         .populate('guest')
         .populate('propertyOwner')
         .populate('property')
-       /*  .populate({
-            path: 'properties',
-            populate: {  //no  va
-                path: 'property',
-                select: ' price'
-            }
-        }) */
+        /*  .populate({
+             path: 'properties',
+             populate: {  //no  va
+                 path: 'property',
+                 select: ' price'
+             }
+         }) */
         .then(bookings => res.json(bookings))
         .catch(next)
 }
 
 module.exports.detail = (req, res, next) => {
-    res.json(req.booking)
+    Booking.findById(req.params.bookingId)
+        .populate('guest')
+        .populate({
+            path: 'propertyOwner',
+            populate: {
+                path: 'properties',
+            }
+        })
+        .then(booking => res.json(booking))
+        .catch(next)
 }
 
 module.exports.delete = (req, res, next) => {

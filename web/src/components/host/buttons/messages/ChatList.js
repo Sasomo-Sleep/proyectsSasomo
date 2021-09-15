@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import service from '../../../../services/sasomo-service';
 import ChatItem from './ChatItem';
 

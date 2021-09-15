@@ -15,12 +15,13 @@ const BookingsList = () => {
     console.log(bookings, "boooko")
     if (!bookings) return <> </>
     return (
-        <div>
-            {bookings.map(booking => 
-                <BookingItem   {...booking} key={booking.id}/>
+        <div className="m-3">
+            <h1>Where you have been!</h1>
+            {bookings?.map(booking => 
+                <BookingItem   {...booking} key={booking?.id}/>
             )}
         </div>
     );
 };
 
-export default BookingsList;
+export default BookingsList; 
