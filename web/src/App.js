@@ -10,6 +10,7 @@ import ChatDetail from './components/host/buttons/messages/ChatDetail';
 import SignUp from './components/auth/SingUp';
 import Today from './components/host/buttons/today/Today';
 import Detail from './components/host/buttons/today/DetailFav';
+import Footer from './components/common/footer1/Footer'
 import Footer2 from './components/common/footer2/Footer2';
 import MenuGuest from './components/guest/menu/MenuGuest';
 import HomesFavs from './components/guest/favs/HomesFavs';
@@ -31,7 +32,7 @@ function App() {
 
         {/* profile  HOST*/}
         <Route exact path="/profile" component={Profile} />
-       {/*  <Route exact path="/profile/edit" component={EditProfile} /> */}
+        {/*  <Route exact path="/profile/edit" component={EditProfile} /> */}
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/profile/my-chats" component={ChatList} />
         <Route exact path="/chats/:id" component={ChatDetail} />
@@ -49,8 +50,8 @@ function App() {
         <Route exact path="/search" component={Explorer} />
       </Switch>
 
-      {/* <Footer /> */}
-      <Footer2 />
+      <Footer />
+      {/* <Footer2 /> */}
     </div>
   );
 }
