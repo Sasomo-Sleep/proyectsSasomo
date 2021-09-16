@@ -11,15 +11,14 @@ function Profile() {
         return <> </>
     }
     return (
-        <div className="profile1 my-5 mx-2">
-            <Link to="/profile/edit"><p className=" d-flex justify-content-end"> edit</p></Link>
+        <div className="profile1 my-3 mx-2">
+            <Link to="/profile/edit"><p className=" d-flex justify-content-end"> <i className="fas fa-edit"></i></p></Link>
             <div className="me-auto d-flex ">
                 <div className="col-6">
                     <h1 > Hi, I'm {auth.user.name}</h1>
                     <span> {auth.user.name} joins {moment(auth.user.createAt).format("MMM Do YY")}</span>
-                    <p> Identidad verificada</p>
-                    <p> {auth.user.reviews} Reviews</p>
-
+                    <p><i className="far fa-check-circle"></i> Identidad verificada</p>
+                    <p><i className="far fa-comment-alt"></i>{auth.user.reviews} Reviews</p>
                     <hr />
                 </div>
 
@@ -31,9 +30,9 @@ function Profile() {
                 <h3> About of ...</h3>
                 <p> <i className="fas fa-quote-left"></i></p>
                 <h6> {auth.user.about}</h6>
-                <p> Live in {auth.user.city}</p>
+                <p><i className="fas fa-home"></i> Live in {auth.user.city}</p>
                 <div className="app">
-                    {auth.user.idioms.map(idiom => <span key={idiom}>{idiom}</span>)}
+                <span><i className="fas fa-comment"></i> Speak</span>{auth.user.idioms.map(idiom => <span key={idiom}>{idiom}</span>)}
                 </div>
                 <hr />
             </div>
@@ -41,15 +40,15 @@ function Profile() {
             <div className="profile">
 
                 <h3> {auth.user.name} confirmed  </h3>
-                <p> {auth.user.identyCard}</p>
-                <p> {auth.user.email}</p>
-                <p>{auth.user.phone}</p>
+                <p><i className="fas fa-check"></i> {auth.user.identyCard}</p>
+                <p><i className="fas fa-check"></i> {auth.user.email}</p>
+                <p><i className="fas fa-check"></i> {auth.user.phone}</p>
                 <hr />
             </div>
 
             <div className="profile">
                 {auth.user.properties.map(property => <h3 key={property.id}> {property.name} </h3>)}
-                {auth.user.properties.map(property => <img src={property.images[0]} alt={property.name} key={property.id}/>)}
+                {auth.user.properties.map(property => <img src={property.images[0]} alt={property.name} key={property.id} />)}
 
             </div>
 

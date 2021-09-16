@@ -17,6 +17,7 @@ import DetailFav from './components/guest/favs/DetailFav';
 import BookingsList from './components/guest/bookings/BookingsList';
 import BookingDetail from './components/guest/bookings/BookingDetail';
 import Explorer from './components/guest/explorer/Explorer';
+import EditProfile from './components/user/EditProfile';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
         {/* profile  HOST*/}
         <Route exact path="/profile" component={Profile} />
+       {/*  <Route exact path="/profile/edit" component={EditProfile} /> */}
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/profile/my-chats" component={ChatList} />
         <Route exact path="/chats/:id" component={ChatDetail} />
