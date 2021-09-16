@@ -19,6 +19,7 @@ import BookingsList from './components/guest/bookings/BookingsList';
 import BookingDetail from './components/guest/bookings/BookingDetail';
 import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
+import PropertyForm from './components/host/property/PropertyForm';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
 
         {/* profile  HOST*/}
         <Route exact path="/profile" component={Profile} />
-         <Route exact path="/profile/edit" component={EditProfile} />
+        <Route exact path="/profile/edit" component={EditProfile} />
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/profile/my-chats" component={ChatList} />
         <Route exact path="/chats/:id" component={ChatDetail} />
@@ -48,10 +49,12 @@ function App() {
         <Route exact path="/bookings" component={BookingsList} />
         <Route exact path="/bookings/:id" component={BookingDetail} />
         <Route exact path="/search" component={Explorer} />
+
+        <Route exact path="/properties" component={PropertyForm} />
       </Switch>
 
-      {/* <Footer /> */}
-      <Footer2 />
+      <Footer />
+      {/* <Footer2 /> */}
     </div>
   );
 }

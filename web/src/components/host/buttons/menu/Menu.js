@@ -31,7 +31,7 @@ function Menu() {
             </div>
             <div className="mt-3 ">
                 <p><i className="fas fa-book-open"></i> Guides <i className="fas fa-arrow-right"></i></p>
-                <p><i className="fas fa-home"></i> Create a new room advertisement <i className="fas fa-arrow-right"></i></p>
+                <Link to="/properties"><p><i className="fas fa-home"></i> Create a new room advertisement <i className="fas fa-arrow-right"></i></p></Link>
                 <p><i className="fas fa-campground"></i> Offer a new experience <i className="fas fa-arrow-right"></i></p>
                 <hr />
             </div>

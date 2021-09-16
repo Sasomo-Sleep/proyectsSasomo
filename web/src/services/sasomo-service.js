@@ -5,12 +5,17 @@ const signUp = (user) => http.post('/signUp', user)
 const login = (email, password) => http.post('/login', { email, password })
 const logout = () => http.post('/logout')
 
-//panel principal
+//profile
 const profile = () => http.get('/profile')
-const editProfile = (user) => http.patch('/profile/edit', user)
+const editProfile = (user) => http.patch('/profile/edit', user) 
+
+//chats
 const getChats = () => http.get('/profile/my-chats')
 const getChat = (id) => http.get(`/chats/${id}`)
 const message = (id, message) => http.post(`/chats/${id}/message`, { message })
+
+//properties
+const propertyCreate = (property) => http.post('/properties', property)
 
 //booking
 const bookingDetail = (id) => http.get(`/host/bookings/${id}`)//host
@@ -32,7 +37,8 @@ const service = {
     homeFavs,
     favDetail,
     allBokings,
-    bookDetail
+    bookDetail, 
+    propertyCreate
 }
 
 export default service
