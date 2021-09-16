@@ -1,0 +1,29 @@
+.menu-guest .avatar {
+  max-width: 50px;
+}
+.menu-guest  .hight-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.menu-guest .panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-guest a {
+  color: #47d147;
+}
+
+ #one {
+    border-top: 2px solid gainsboro;
+
+}
+
+ .hr-main {
+    border-top: 1px solid gainsboro;
+}
+.menu-guest span {
+    font-size: smaller;
+}
