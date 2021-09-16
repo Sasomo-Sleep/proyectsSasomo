@@ -11,13 +11,13 @@ function ChatItem({ users, id }) {
    
 
     return (
-        <div className="chat-item m-3">
+        <div className="chat-item ">
 
             <img src={userId?.avatar} alt={userId?.name} className="avatar align-self-start  w-100 rounded-circle me-3" />
             <div>
                 <Link to={`/chats/${id}`}>
                     <p className="m-0 text-muted">{userId?.name}</p>
-                    {auth.user?.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name} </p>)}
+                    {auth.user?.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name.slice(0, 21)} </p>)}
                 </Link>
             </div>
         </div>

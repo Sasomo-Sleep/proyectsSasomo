@@ -30,17 +30,17 @@ function Menu() {
                 {auth.user.properties.map(property => <h4 key={property.id}> {property.name} </h4>)}
             </div>
             <div className="mt-3 ">
-                <p>Guides</p>
-                <p>Create a new room advertisement</p>
-                <p>Offer a new experience</p>
+                <p><i className="fas fa-book-open"></i> Guides <i className="fas fa-arrow-right"></i></p>
+                <p><i className="fas fa-home"></i> Create a new room advertisement <i className="fas fa-arrow-right"></i></p>
+                <p><i className="fas fa-campground"></i> Offer a new experience <i className="fas fa-arrow-right"></i></p>
                 <hr />
             </div>
             <div className="my-3 mx-2">
 
                 <span >CUENTA</span>
                 <div className="cuenta">
-                    <img className="avatar align-self-start imgg-fluid  rounded-circle me-3" src="/images/payaso.jpeg" alt={auth.user?.name} />
-                    <Link to="/profile"><p> Your profile</p></Link>
+                    <img className="avatar align-self-start imgg-fluid  rounded-circle me-3" src={auth.user?.avatar} alt={auth.user?.name} />
+                    <Link to="/profile"><p> Your profile <i className="arrow fas fa-arrow-right"></i></p></Link>
                 </div>
 
 

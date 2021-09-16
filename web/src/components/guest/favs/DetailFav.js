@@ -11,7 +11,6 @@ const DetailFav = () => {
             .then(flat => setFlat(flat))
             .catch(err => console.error(err))
     }, [id])
-    console.log(flat, "FLATU")
 
     if (!flat) return <> </>
     return (
@@ -20,7 +19,7 @@ const DetailFav = () => {
                 <img src={flat.images} alt={flat.name} />
                 <p>{flat.name}</p>
                 {/*  <p>{flat.reviews}</p> */}
-                <p>{ } Namecity</p>
+                <p>{flat.owner.city}</p>
                 <hr />
             </div>
             <div className="">

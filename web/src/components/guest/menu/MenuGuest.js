@@ -28,17 +28,17 @@ const MenuGuest = () => {
                     <p>ACOUNT SETTINGS</p>
                     <div className="me-auto d-flex">
                         <span>Personal Information</span>
-                        <i class="far fa-user"></i>
+                        <i className="far fa-user"></i>
                     </div>
                     <hr className="hr-main" />
                     <div className="me-auto d-flex">
                         <span>Payments and Collections</span>
-                        <i class="fab fa-cc-paypal"></i>
+                        <i className="fab fa-cc-paypal"></i>
                     </div>
                     <hr className="hr-main" />
                     <div className="me-auto d-flex">
                         <span>Notifications</span>
-                        <i class="fas fa-bell"></i>
+                        <i className="fas fa-bell"></i>
                     </div>
                     <hr className="hr-main" />
                 </div>

@@ -7,7 +7,7 @@ const logout = () => http.post('/logout')
 
 //panel principal
 const profile = () => http.get('/profile')
-const editProfile = (profile) => http.patch('/profile', profile)
+const editProfile = (user) => http.patch('/profile/edit', user)
 const getChats = () => http.get('/profile/my-chats')
 const getChat = (id) => http.get(`/chats/${id}`)
 const message = (id, message) => http.post(`/chats/${id}/message`, { message })

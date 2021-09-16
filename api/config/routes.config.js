@@ -23,7 +23,7 @@ router.post('/logout', secure.isAuthenticated, auth.logout)
 
 //user
 router.get('/profile', secure.isAuthenticated, auth.get)
-router.patch('/profile', secure.isAuthenticated, upload.single('avatar'), auth.update)
+router.patch('/profile/edit', secure.isAuthenticated, upload.single('avatar'), auth.update)
 router.delete('/profile', secure.isAuthenticated, auth.delete)
 
 //property
