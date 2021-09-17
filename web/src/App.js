@@ -1,5 +1,5 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Profile from './components/user/Profile'
 import Logout from './components/auth/Logout';
@@ -21,8 +21,14 @@ import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
+import { TabBar } from 'antd-mobile';
 
+import { AuthContext } from './contexts/AuthContext';
 function App() {
+  
+  const auth = useContext(AuthContext)
+  const history = useHistory()
+
   return (
     <div className="container" >
       <Switch>
@@ -49,12 +55,27 @@ function App() {
         <Route exact path="/bookings" component={BookingsList} />
         <Route exact path="/bookings/:id" component={BookingDetail} />
         <Route exact path="/search" component={Explorer} />
-
         <Route exact path="/properties" component={PropertyForm} />
       </Switch>
 
-      {/* <Footer /> */}
-      <Footer2 />
+      <div style={ { position: 'fixed', height: '100%', width: '100%', top: 0 } }>
+        <TabBar
+          unselectedTintColor="#949494"
+          tintColor="#33A3F4"
+          barTintColor="white"
+        >
+          <TabBar.Item
+            title="Home"
+            icon={<div><i className="fas fa-hand-middle-finger"></i></div>
+            }
+            onPress={() => {history.push('/profile/my-chats')}}
+          >
+          </TabBar.Item>
+         
+        </TabBar>
+      </div>
+
+    {/* {auth.isGuest ? <Footer2 /> : <Footer />} */}
     </div>
   );
 }

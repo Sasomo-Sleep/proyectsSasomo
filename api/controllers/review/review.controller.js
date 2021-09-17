@@ -1,11 +1,12 @@
 const Review = require('../../models/review.model')
 const User = require('../../models/user.model')
 const Booking = require('../../models/booking.model')
+const Property = require('../../models/property.model')
 
 module.exports.create = (req, res, next) => {
-    Booking.findById(req.params.bookingId)
-        .then(booking => {
-            return Review.create(req.body)
+    Property.findById(req.params.propertyId)
+        .then(property => {
+            return Review.create({...req.body, from: req.user.id, property: req.params.propertyId})
                 .then(review => res.json(review))
         })
         .catch(next)

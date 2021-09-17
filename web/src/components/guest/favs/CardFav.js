@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardFav.css'
 const CardFav = ({ propertyId }) => {
+    console.log(propertyId)
     return (
         <Link to={`/properties/${propertyId?.id}`}>
             <div className='card'>

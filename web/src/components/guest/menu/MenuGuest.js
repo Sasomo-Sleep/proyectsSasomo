@@ -47,7 +47,7 @@ const MenuGuest = () => {
             <div className="m-4 ">
                 <span>HOST</span>
                 <div className="me-auto d-flex">
-                    <span>Use as Host</span>
+                    <button onClick={() => auth.setGuest(true)}> Use as Host</button>
                     <i className="fas fa-arrows-alt-h"></i>
                 </div>
                 <hr className="hr-main" />

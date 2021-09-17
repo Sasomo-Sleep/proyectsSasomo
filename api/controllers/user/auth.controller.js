@@ -45,7 +45,7 @@ module.exports.get = (req, res, next) => {
             populate: {
                 path: 'property',
                 populate: {
-                    path: 'owner'
+                    path: 'owner reviews'
                 }
             }
         })
@@ -77,7 +77,6 @@ module.exports.get = (req, res, next) => {
                 }
             ]
         })
-        .populate('reviews')
         .then(user => {
             res.status(200).json(user)
         })

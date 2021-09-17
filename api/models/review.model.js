@@ -6,6 +6,7 @@ const reviewSchema = new Schema({
     communication: Number,
     timeliness: Number,
     houseRules: Number,
+    comment: String,
     from: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -14,9 +15,9 @@ const reviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    booking: {
+    property: {
         type: Schema.Types.ObjectId,
-        ref: 'Booking'
+        ref: 'Property'
     }
 })
 

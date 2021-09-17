@@ -7,6 +7,7 @@ export const AuthContext = React.createContext()
 function AuthContextProvider({ children }) {
     
     const [user, setUser] = useState()
+    const [isGuest, setGuest] = useState(false)
     const history = useHistory()
 
     useEffect(() => {
@@ -42,12 +43,12 @@ function AuthContextProvider({ children }) {
 
     const value = {
         user,
+        isGuest,
+        setGuest,
         login,
         logout,
         getProfile
     }
-
-
 
     return (
         <AuthContext.Provider value={value} >

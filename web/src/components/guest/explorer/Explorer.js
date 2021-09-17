@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import HeaderHost from '../../common/header/HeaderHost';
+import { DatePicker, List } from 'antd-mobile';
+import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 import './Explorer.css'
+import Map from '../../map/Map';
 
 
 
@@ -9,15 +12,15 @@ import './Explorer.css'
 
 const Explorer = () => {
 
-    const { register, handleSubmit, setError, setValue, watch, reset, formState: { errors, isValid, isDirty } } = useForm({ mode: 'all' });
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
 
 
     return (
         <div>
-
+            <Map />
         </div>
     );
-};
+}
 
 export default Explorer;

@@ -42,10 +42,10 @@ const userSchema = new Schema({
     identyCard: String,
     city: String,
     idioms: [String],
-    reviews: [{
+    /* reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review"
-    }],
+    }] */
     interests: {
         type: [{
             type: String,
@@ -111,6 +111,13 @@ userSchema.virtual('chats', {
     foreignField: 'users',
     justOne: false
 });
+userSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'property',
+    justOne: false
+});
+
 
 userSchema.pre('save', function (next) {
     if (this.isModified('password')) {

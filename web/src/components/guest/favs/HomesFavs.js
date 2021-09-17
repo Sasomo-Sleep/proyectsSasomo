@@ -15,7 +15,8 @@ const HomesFavs = () => {
     if (!flats) return <> </>
     return (
         <div>
-            {flats.map(flat => 
+            <h1 className="mx-4">Homes You liked</h1>
+            {flats.map(flat =>
                 <CardFav  {...flat} key={flat.id} />
             )}
         </div>

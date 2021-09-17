@@ -22,16 +22,11 @@ const propertySchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    reviews: [{
-        type: {
-            type: String,
-            ref: 'Review'
-        }
-    }]
+    }
 }, {
     timestamps: true,
     toJSON: {
+        virtuals: true,
         transform: (doc, ret) => {
             ret.id = doc._id;
             delete ret._id;
@@ -58,8 +53,16 @@ propertySchema.virtual('likes', {
     foreignField: 'propertyId',
     justOne: false
 });
+
 propertySchema.virtual('bookings', {
     ref: 'Booking',
+    localField: '_id',
+    foreignField: 'property',
+    justOne: false
+});
+
+propertySchema.virtual('reviews', {
+    ref: 'Review',
     localField: '_id',
     foreignField: 'property',
     justOne: false

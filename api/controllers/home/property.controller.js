@@ -27,6 +27,7 @@ module.exports.list = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
     Property.findById(req.params.propertyId)
         .populate('owner')
+        .populate('reviews')
         .then(property => res.json(property))
         .catch(next)
 

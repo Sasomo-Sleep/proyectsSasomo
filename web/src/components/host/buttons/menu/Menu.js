@@ -62,7 +62,7 @@ function Menu() {
                 <hr />
             </div>
 
-            <button> Use as guest</button>
+            <button onClick={() => auth.setGuest(true)}> Use as guest</button>
             <button onClick={handleLogout}> Log Out</button>
         </div>
     )
