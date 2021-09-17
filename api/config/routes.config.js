@@ -17,13 +17,13 @@ const events = require('../controllers/event/event.controller')
 const router = express.Router();
 
 //auth
-router.post('/signUp', auth.create)
+router.post('/signup', auth.create)
 router.post('/login', auth.login)
 router.post('/logout', secure.isAuthenticated, auth.logout)
 
 //user
 router.get('/profile', secure.isAuthenticated, auth.get)
-router.patch('/profile/edit', secure.isAuthenticated, upload.single('avatar'), auth.update)
+router.patch('/profile', secure.isAuthenticated, upload.single('avatar'), auth.update)
 router.delete('/profile', secure.isAuthenticated, auth.delete)
 
 //property

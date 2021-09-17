@@ -8,20 +8,25 @@ const EditProfile = () => {
     const history = useHistory()
     const auth = useContext(AuthContext)
 
-    const { register, handleSubmit, setError, formState: { errors }, setValue } = useForm({ mode: 'all' })
+    const { register, handleSubmit, setError, formState: { errors }, setValue } = useForm({
+        mode: 'all',
+        defaultValues: {
+            about: auth.user?.about,
+            city: auth.user?.city
+        }
+    })
 
     const onEditProfileForm = data => {
-        service.editProfile()
-            .then(Object.assign(auth.user, data)) //falta jeje
+        service.editProfile(data)
+            .then(user => {
+                auth.login(user)
+                history.push('/profile')
+            }) 
             .catch(console.error)
 
     }
-    /* setValue("avatar", auth?.user?.avatar) */
-    setValue("about", auth?.user?.about)
-    setValue("city", auth?.user?.city)
-    setValue("idioms", auth?.user?.idioms)
 
-    if (!auth.user || !auth.user) { return <> </> }
+    if (!auth.user || !auth.user) { return null}
     return (
         <div className="my-5">
             <form onSubmit={handleSubmit(onEditProfileForm)}>
@@ -32,10 +37,8 @@ const EditProfile = () => {
 
                 <input type="text" {...register("city")} />
 
-                <input type="text" {...register("idioms")} />
-
                 <button type="submit" className="btn btn-primary"></button>
-                
+
             </form>
         </div>
     );

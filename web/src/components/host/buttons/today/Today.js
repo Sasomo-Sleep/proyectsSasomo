@@ -6,10 +6,10 @@ import Card from "./Card"
 function Today() {
 
     const auth = useContext(AuthContext)
-
+console.log(auth.user, "joli")
     if (!auth.user) return <> </>
     return (
-        <div className="m-4 ">
+        <div style={{marginTop: "70px"}}>
             <HeaderHost />
             {auth.user.hostBookings.map(booking =>
                 <Card   {...booking} key={booking.id}/>

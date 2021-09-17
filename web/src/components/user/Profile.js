@@ -5,11 +5,11 @@ import moment from 'moment'
 import './Profile.css'
 
 function Profile() {
-
     const auth = useContext(AuthContext)
     if (!auth.user || !auth.user) {
         return <> </>
     }
+    console.log(auth.user, "eyy")
     return (
         <div className="profile1 my-3 mx-2">
             <Link to="/profile/edit"><p className=" d-flex justify-content-end"> <i className="fas fa-edit"></i></p></Link>

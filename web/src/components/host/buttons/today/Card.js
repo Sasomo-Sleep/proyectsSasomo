@@ -2,22 +2,24 @@ import './Today.css'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
-function Card({ guest, checkIn, checkOut, id}) {
+function Card({ guest, checkIn, checkOut, id, property }) {
     return (
 
-        <div className="cardToday">
-            <Link to={`/detail/${id}`}>
+        <Link to={`/detail/${id}`}>
+            <div className="cardToday">
                 <div>
-                    <p>Arrives {moment(checkIn).add(1, 'days').calendar()}</p>
-                    <p>{guest.name}</p>
-                    <p>{moment(checkIn).format('MMM Do')}-{moment(checkOut).format('MMM Do')}</p>
+                    <p>{property.name}</p>
+                    <div className="name-container m-3">
+                        <h6>{guest.name}</h6>
+                        <p>{moment(checkIn).format('MMM Do')}-{moment(checkOut).format('MMM Do')}</p>
+                    </div>
                 </div>
-                <div className="d-flex ">
+                <div className="img-container ">
                     <img src={guest.avatar} alt={guest.avatar} />
 
                 </div>
-            </Link>
-        </div>
+            </div>
+        </Link>
 
     )
 }

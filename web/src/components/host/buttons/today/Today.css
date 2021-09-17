@@ -14,4 +14,16 @@
   box-shadow: rgb(0 0 0 / 5%) 0px 4px 4px 0px;
   margin-top: 5px;
   display: flex;
+  padding: 1em;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 0;
  }
+
+.img-container {
+  align-self: end;
+}
+
+.name-container {
+  margin-top: -3px;
+}

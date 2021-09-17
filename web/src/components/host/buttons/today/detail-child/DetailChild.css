@@ -1,3 +1,49 @@
 .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+
+.guest-info {
+    line-height: normal;
+}
+
+hr {
+    margin-top: 0;
+}
+
+.list-container {
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    
+}
+
+.list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+    flex-wrap: nowrap;
+    height: 3.2em;
+    border-bottom: 1px solid gray;
+    margin-top: -1rem !important;
+
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.buttons-container button {
+    height: 2.5rem;
+    font-size: 10px;
+    line-height: normal;
+    text-align: center;
+    padding: 1em 1em;
+    width: 50%;
 }

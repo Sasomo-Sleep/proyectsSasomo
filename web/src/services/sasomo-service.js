@@ -7,7 +7,16 @@ const logout = () => http.post('/logout')
 
 //profile
 const profile = () => http.get('/profile')
-const editProfile = (user) => http.patch('/profile/edit', user) 
+const editProfile = (user) => {
+
+    const data = new FormData()
+    data.append('avatar', user.avatar[0])
+    data.append('about', user.about)
+    data.append('city', user.city)
+    return http.patch('/profile', data)
+}
+
+
 
 //chats
 const getChats = () => http.get('/profile/my-chats')
@@ -37,7 +46,7 @@ const service = {
     homeFavs,
     favDetail,
     allBokings,
-    bookDetail, 
+    bookDetail,
     propertyCreate
 }
 

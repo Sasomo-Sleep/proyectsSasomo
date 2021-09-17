@@ -20,11 +20,11 @@ import BookingDetail from './components/guest/bookings/BookingDetail';
 import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
-
+import 'antd-mobile/dist/antd-mobile.css'
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" >
       <Switch>
         {/* auth */}
         <Route exact path="/signUp" component={SignUp} />
