@@ -53,8 +53,8 @@ function App() {
         <Route exact path="/properties" component={PropertyForm} />
       </Switch>
 
-      <Footer />
-      {/* <Footer2 /> */}
+      {/* <Footer /> */}
+      <Footer2 />
     </div>
   );
 }

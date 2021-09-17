@@ -5,12 +5,11 @@ import './CardFav.css'
 const CardFav = ({ propertyId }) => {
     return (
         <Link to={`/properties/${propertyId?.id}`}>
-            <div className='cardd'>
+            <div className='card'>
                 <img src={propertyId?.images[0]} alt={propertyId?.name} />
-                <div className="cardd__info">
-                    <h2>{propertyId?.name}</h2>
-                    <h4>{propertyId?.description}</h4>
-                    <h3>{propertyId?.price}€ / Night <i className="far fa-heart"></i></h3>
+                <div className="card__info">
+                    <h6>{propertyId?.name}</h6>
+                    <p>{propertyId?.price}€ / Night <i className="far fa-heart"></i></p>
                 </div>
             </div>
         </Link>
