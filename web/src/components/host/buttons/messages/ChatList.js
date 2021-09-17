@@ -13,11 +13,11 @@ function ChatList() {
             .then(chats => setChats(chats))
             .catch(err => console.error(err))
     }, [])
-
+    console.log(chats, "eey")
     if (!chats) return <> </>
     return (
         <>
-            <div className="row m-4">
+            <div className="row m-4 mx-0">
                 <h1>All your messages </h1>
                 <div className="col" >
                     <ul className="list-group" style={{textDecoration: 'none'}}>

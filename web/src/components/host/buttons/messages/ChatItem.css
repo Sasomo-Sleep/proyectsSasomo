@@ -1,5 +1,6 @@
 .chat-item .avatar{
     max-width: 74px;
+    margin-right: 0;
 }
 .chat-item {
     display: flex;
@@ -8,4 +9,16 @@
     border-radius: 12px !important;
     box-shadow: rgb(0 0 0 / 5%) 0px 4px 4px 0px;
     margin-top: 5px;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-item h6:first-of-type {
+    margin-top: 1rem !important;
+    
+}
+
+.list-group {
+    list-style: none;
 }

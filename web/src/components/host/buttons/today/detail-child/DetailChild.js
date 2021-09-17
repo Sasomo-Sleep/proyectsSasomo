@@ -2,7 +2,7 @@ import './DetailChild.css'
 import moment from 'moment'
 import { Link } from "react-router-dom"
 import DetailFav from '../../../../guest/favs/DetailFav';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 function DetailChild({ checkIn, checkOut, guest, guestsClass, property, createdAt, id }) {
     const [visible, setVisible] = useState(false)
 
