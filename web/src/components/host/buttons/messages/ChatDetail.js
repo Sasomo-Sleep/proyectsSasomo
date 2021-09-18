@@ -43,12 +43,11 @@ function ChatDetail() {
                     {messages.map(mess =>
                         <p key={mess.id}> {mess.message}</p>
                     )}
-
-                    <form onSubmit={handleSubmit}>
+                </div>
+                <form onSubmit={handleSubmit}>
                         <textarea value={currentMessage} name="message" onChange={(e) => setCurrentMessage(e.target.value)} className="form-control" placeholder="Your Message Here"></textarea>
                         <button type="submit">Send</button>
                     </form>
-                </div>
             </div>
         </>
     )

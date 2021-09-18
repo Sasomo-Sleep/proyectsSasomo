@@ -10,6 +10,8 @@ import enUS from 'antd-mobile/lib/calendar/locale/en_US'
 import moment from 'moment'
 import service from '../../../services/sasomo-service';
 import PropertyItem from './properties/PropertyItem';
+import DetailFav from '../favs/DetailFav';
+import LoggedInPage from '../../common/LoggedInPage';
 
 
 const Explorer = () => {
@@ -25,7 +27,7 @@ const Explorer = () => {
             setShowDatePicker(!showDatePicker)
         }
         if (dateRange.checkIn && dateRange.checkOut && location) {
-            service.propertiesSearched({...dateRange, ...location})
+            service.propertiesSearched({ ...dateRange, ...location })
                 .then(properties => setProperties(properties))
                 .catch(console.error())
         }
@@ -33,29 +35,36 @@ const Explorer = () => {
 
     console.log(properties, "hollis")
     return (
-        <div>
-            <Calendar
-                visible={showDatePicker}
-                onCancel={() => setShowDatePicker(!showDatePicker)}
-                onConfirm={(checkIn, checkOut) => setDateRange({ checkIn: moment(checkIn).format('MM-DD-YYYY'), checkOut: moment(checkOut).format('MM-DD-YYYY') })}
-                defaultDate={new Date()}
-                minDate={new Date()}
-                locale={enUS}
-            />
-            <List.Item arrow="horizontal" onClick={() => setShowDatePicker(!showDatePicker)}>
-                Select Date Range
-            </List.Item>
-            <Autocomplete
-                apiKey="AIzaSyCfrGSQdvr82q3vR77SDXDotg2KBBImfns"
-                onPlaceSelected={(place) => setLocation(place.geometry.location?.toJSON())}
-            />
+        <LoggedInPage>
+            <div className="mx-4">
+                <div className='calendar'>
+                    <Calendar
+                        className='calendar'
+                        visible={showDatePicker}
+                        onCancel={() => setShowDatePicker(!showDatePicker)}
+                        onConfirm={(checkIn, checkOut) => setDateRange({ checkIn: moment(checkIn).format('MM-DD-YYYY'), checkOut: moment(checkOut).format('MM-DD-YYYY') })}
+                        defaultDate={new Date()}
+                        minDate={new Date()}
+                        locale={enUS}
+                    />
+                </div>
 
-            {properties?.map(prop =>
-                <PropertyItem   {...prop} key={prop.id} />
-            )}
+                <List.Item arrow="horizontal" onClick={() => setShowDatePicker(!showDatePicker)}>
+                    Select Date Range
+                </List.Item>
+                <Autocomplete
+                    className='autocomplete'
+                    apiKey="AIzaSyCfrGSQdvr82q3vR77SDXDotg2KBBImfns"
+                    onPlaceSelected={(place) => setLocation(place.geometry.location?.toJSON())}
+                />
+
+                {properties?.map(prop =>
+                    <PropertyItem   {...prop} key={prop.id} />
+                )}
 
 
-        </div>
+            </div>
+        </LoggedInPage>
     );
 }
 

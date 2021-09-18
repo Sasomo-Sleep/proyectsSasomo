@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext';
 import moment from 'moment'
 import './Profile.css'
+import LoggedInPage from '../common/LoggedInPage';
 
 function Profile() {
     const [visible, setVisible] = useState(false)
@@ -10,9 +11,9 @@ function Profile() {
     if (!auth.user || !auth.user) {
         return <> </>
     }
-    console.log(auth.user, "eyy")
     return (
-        <div className="profile1 my-3 mx-2">
+        <LoggedInPage>
+            <div className="profile1 my-3 mx-2">
             <Link to="/profile/edit"><p className=" d-flex justify-content-end"> <i className="fas fa-edit"></i></p></Link>
             <div className="me-auto d-flex top-container">
                 <div className="col-6">
@@ -51,7 +52,6 @@ function Profile() {
 
             <div className="profile">
                 <h6>Flat of {auth.user?.name}</h6>
-                {/* {auth.user.properties.map(property => <h3 key={property.id}> {property.name} </h3>)} */}
                 {auth.user.properties.map(property => <img src={property.images[0]} alt={property.name} key={property.id} />)}
 
             </div>
@@ -61,6 +61,7 @@ function Profile() {
                 <h3>{auth.user?.reviews?.length} reviews</h3>
             </div>
         </div>
+        </LoggedInPage>
     )
 }
 

@@ -21,6 +21,7 @@ import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
+import TabBarHost from "./components/common/tabbar/TabBarHost"
 import { TabBar } from 'antd-mobile';
 import { DatePicker, List } from 'antd-mobile';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
@@ -31,7 +32,7 @@ function App() {
   const history = useHistory()
 
   return (
-    <div className="w-100 h-100 " >
+    <div className="vh-100 vw-100" >
       <Switch>
         {/* auth */}
         <Route exact path="/signUp" component={SignUp} />
@@ -58,33 +59,6 @@ function App() {
         <Route exact path="/search" component={Explorer} />
         <Route exact path="/properties" component={PropertyForm} />
       </Switch>
-      {/* <DatePicker
-          mode="date"
-          title="Select Date"
-          extra="Optional"
-          value={''}
-          onChange={''}
-          locale={enUs}
-        >
-          <List.Item arrow="horizontal">Date</List.Item>
-        </DatePicker>
- */}
-       {/*  <TabBar className="fixed-bottom"
-          unselectedTintColor="#949494"
-          tintColor="#33A3F4"
-          barTintColor="white"
-        >
-          <TabBar.Item
-            title="Home"
-            icon={<div><i className="fas fa-hand-middle-finger"></i></div>
-            }
-            onPress={() => {history.push('/profile/my-chats')}}
-          >
-          </TabBar.Item>
-         
-        </TabBar> */}
-
-    {auth.isGuest ? <Footer /> : <Footer2 />}
     </div>
   );
 }

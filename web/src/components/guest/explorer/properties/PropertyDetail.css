@@ -1,0 +1,20 @@
+.title-container h6:first-of-type {
+    margin-top: 175px;
+  }
+  
+  .title-container img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    height: 170px !important;
+    border-radius: unset !important;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .flat-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
