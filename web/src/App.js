@@ -22,7 +22,8 @@ import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
 import { TabBar } from 'antd-mobile';
-
+import { DatePicker, List } from 'antd-mobile';
+import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 import { AuthContext } from './contexts/AuthContext';
 function App() {
   
@@ -30,7 +31,7 @@ function App() {
   const history = useHistory()
 
   return (
-    <div className="container" >
+    <div className="w-100 h-100 " >
       <Switch>
         {/* auth */}
         <Route exact path="/signUp" component={SignUp} />
@@ -57,9 +58,18 @@ function App() {
         <Route exact path="/search" component={Explorer} />
         <Route exact path="/properties" component={PropertyForm} />
       </Switch>
-
-      <div style={ { position: 'fixed', height: '100%', width: '100%', top: 0 } }>
-        <TabBar
+      {/* <DatePicker
+          mode="date"
+          title="Select Date"
+          extra="Optional"
+          value={''}
+          onChange={''}
+          locale={enUs}
+        >
+          <List.Item arrow="horizontal">Date</List.Item>
+        </DatePicker>
+ */}
+       {/*  <TabBar className="fixed-bottom"
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
           barTintColor="white"
@@ -72,10 +82,9 @@ function App() {
           >
           </TabBar.Item>
          
-        </TabBar>
-      </div>
+        </TabBar> */}
 
-    {/* {auth.isGuest ? <Footer2 /> : <Footer />} */}
+    {auth.isGuest ? <Footer /> : <Footer2 />}
     </div>
   );
 }
