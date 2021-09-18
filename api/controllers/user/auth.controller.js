@@ -45,7 +45,7 @@ module.exports.get = (req, res, next) => {
             populate: {
                 path: 'property',
                 populate: {
-                    path: 'owner reviews'
+                    path: 'owner reviews '
                 }
             }
         })
@@ -54,7 +54,7 @@ module.exports.get = (req, res, next) => {
             /* match: { checkOut: { $gte: 21 } } */
             populate: {
                 path: 'property',
-                select: 'images name description '
+                select: 'images name description location'
             }
         })
         .populate({

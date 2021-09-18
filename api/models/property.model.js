@@ -32,7 +32,7 @@ const propertySchema = new Schema({
             delete ret._id;
             delete ret.__v;
             ret.bookings = doc.bookings || []
-            //ret.location = doc.location.coordinates.reverse()
+            ret.location = doc.location.coordinates?.reverse() || []
             return ret
         }
     },
@@ -46,6 +46,7 @@ const propertySchema = new Schema({
         }
     }
 })
+propertySchema.index({ location: '2dsphere' });
 
 propertySchema.virtual('likes', {
     ref: 'Like',
