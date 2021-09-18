@@ -3,12 +3,14 @@ import moment from 'moment'
 import { Link } from "react-router-dom"
 import DetailFav from '../../../../guest/favs/DetailFav';
 import {  useState } from 'react';
+import LoggedInPage from '../../../../common/LoggedInPage';
 function DetailChild({ checkIn, checkOut, guest, guestsClass, property, createdAt, id }) {
     const [visible, setVisible] = useState(false)
 
     console.log(id, "id")
     const numberOfGuest = guestsClass?.reduce((amount, guestsClass) => guestsClass.quantity + amount, 0)
     return (
+        <LoggedInPage>
         <div>
             <div className="header m-4">
                 <div className="guest-info">
@@ -53,6 +55,7 @@ function DetailChild({ checkIn, checkOut, guest, guestsClass, property, createdA
 
 
         </div>
+        </LoggedInPage>
     )
 }
 export default DetailChild

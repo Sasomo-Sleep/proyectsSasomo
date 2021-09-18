@@ -36,7 +36,7 @@ const Explorer = () => {
     console.log(properties, "hollis")
     return (
         <LoggedInPage>
-            <div  id="search">
+            <div id="search">
                 <div className='calendar'>
                     <Calendar
                         className='calendar'
@@ -58,11 +58,12 @@ const Explorer = () => {
                     Select Date Range
                 </List.Item>
 
-                {properties?.map(prop =>
-                    <PropertyItem   {...prop} key={prop.id} />
-                )}
 
 
+            </div>
+            <div>{properties?.map(prop =>
+                <PropertyItem   {...prop} key={prop.id} />
+            )}
             </div>
         </LoggedInPage>
     );

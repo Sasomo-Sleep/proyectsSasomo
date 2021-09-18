@@ -3,6 +3,7 @@ import { useState, useEffect, } from 'react';
 import { useParams, useHistory } from 'react-router';
 import service from '../../../../services/sasomo-service';
 import { NavBar, Icon } from 'antd-mobile';
+import LoggedInPage from '../../../common/LoggedInPage';
 
 
 function ChatDetail() {
@@ -31,6 +32,7 @@ function ChatDetail() {
     if (!chat) return <> </>
     console.log(chat, "comeculos")
     return (
+        <LoggedInPage>
         <>
             <NavBar
                 mode="light"
@@ -50,6 +52,7 @@ function ChatDetail() {
                     </form>
             </div>
         </>
+        </LoggedInPage>
     )
 }
 

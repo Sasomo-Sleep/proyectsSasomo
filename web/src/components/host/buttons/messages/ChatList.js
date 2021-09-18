@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import service from '../../../../services/sasomo-service';
+import LoggedInPage from '../../../common/LoggedInPage';
 import ChatItem from './ChatItem';
 
 function ChatList() {
@@ -16,7 +17,7 @@ function ChatList() {
     console.log(chats, "eey")
     if (!chats) return <> </>
     return (
-        <>
+        <> <LoggedInPage>
             <div className="row m-4 mx-0">
                 <h1>All your messages </h1>
                 <div className="col" >
@@ -30,6 +31,7 @@ function ChatList() {
                     </ul>
                 </div>
             </div>
+            </LoggedInPage>
         </>
     )
 

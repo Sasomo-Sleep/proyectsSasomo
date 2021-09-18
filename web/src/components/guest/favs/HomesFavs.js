@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import service from '../../../services/sasomo-service';
+import LoggedInPage from '../../common/LoggedInPage';
 import CardFav from './CardFav';
 
 const HomesFavs = () => {
@@ -14,12 +15,14 @@ const HomesFavs = () => {
 
     if (!flats) return <> </>
     return (
-        <div>
-            <h1 className="mx-4">Homes You liked</h1>
-            {flats.map(flat =>
-                <CardFav  {...flat} key={flat.id} />
-            )}
-        </div>
+        <LoggedInPage>
+            <div>
+                <h1 className="mx-4">Homes You liked</h1>
+                {flats.map(flat =>
+                    <CardFav  {...flat} key={flat.id} />
+                )}
+            </div>
+        </LoggedInPage>
     );
 };
 

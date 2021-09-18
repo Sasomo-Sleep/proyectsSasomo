@@ -1,10 +1,12 @@
 import {Link} from 'react-router-dom'
 import React from 'react';
 import './PropertyItem.css'
+import LoggedInPage from '../../../common/LoggedInPage';
 const PropertyItem = ({ name, images, price, id }) => {
 
 
     return (
+        <LoggedInPage>
         <Link to={`/properties/${id}`}>
         <div className='card'>
             <img src={images[0]} alt={name} />
@@ -14,6 +16,7 @@ const PropertyItem = ({ name, images, price, id }) => {
             </div>
         </div>
     </Link>
+    </LoggedInPage>
     );
 };
 
