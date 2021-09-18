@@ -36,7 +36,7 @@ const Explorer = () => {
     console.log(properties, "hollis")
     return (
         <LoggedInPage>
-            <div className="mx-4">
+            <div  id="search">
                 <div className='calendar'>
                     <Calendar
                         className='calendar'
@@ -49,14 +49,14 @@ const Explorer = () => {
                     />
                 </div>
 
-                <List.Item arrow="horizontal" onClick={() => setShowDatePicker(!showDatePicker)}>
-                    Select Date Range
-                </List.Item>
                 <Autocomplete
                     className='autocomplete'
                     apiKey="AIzaSyCfrGSQdvr82q3vR77SDXDotg2KBBImfns"
                     onPlaceSelected={(place) => setLocation(place.geometry.location?.toJSON())}
                 />
+                <List.Item arrow="horizontal" onClick={() => setShowDatePicker(!showDatePicker)}>
+                    Select Date Range
+                </List.Item>
 
                 {properties?.map(prop =>
                     <PropertyItem   {...prop} key={prop.id} />
