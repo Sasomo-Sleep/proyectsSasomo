@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import service from '../../../services/sasomo-service';
 import './PropertyDetail.css'
 import LoggedInPage from '../../../common/LoggedInPage';
+
 const PropertyDetail = () => {
     const { id } = useParams()
     const [flat, setFlat] = useState()

@@ -1,18 +1,15 @@
+.autocomplete {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 3%;
+  margin-bottom: 5px;
+}
 
-
-  .autocomplete {
- width: 100%;
-    margin-top: 20px;
-    border-radius: 10px;
-    padding: 3%;
-    margin-bottom: 5px;
-  
-  }
-
-  .calendar {
-    margin-top: 20px;
-    border-radius: 10px;
-  }
+.calendar {
+  margin-top: 20px;
+  border-radius: 10px;
+}
 
 #search {
   background-image: url(https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg);

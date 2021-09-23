@@ -16,7 +16,7 @@
   
   .card-search > img {
     max-height: 100% !important;
-    max-width: 100% !important;
+    max-width: 97% !important;
     height: 170px !important;
     border-radius: 4px;
     margin: 10px !important;
@@ -46,9 +46,9 @@
     justify-content: space-between;
   }
 
-  .card > img {
+  .card-img {
     max-height: 100% !important;
-    max-width: 100% !important;
+    max-width: 93% !important;
     height: 170px !important;
     border-radius: 4px;
     margin: 10px !important;

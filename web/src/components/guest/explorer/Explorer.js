@@ -27,7 +27,6 @@ const Explorer = () => {
                 .catch(console.error())
         }
     }, [dateRange, location])
-
     return (
         <LoggedInPage>
             <div id="search">
@@ -52,12 +51,11 @@ const Explorer = () => {
                     Select Date Range
                 </List.Item>
 
-
-
             </div>
-            <div className="mt-5">{properties?.map(prop =>
-                <PropertyItem   {...prop} key={prop.id} />
-            )}
+            <div className="mt-5">
+                {properties?.map(prop =>
+                    <PropertyItem   {...prop} key={prop.id} />
+                )}
             </div>
         </LoggedInPage>
     );

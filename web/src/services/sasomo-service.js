@@ -33,7 +33,9 @@ const favDetail = (id) => http.get(`/properties/${id}`)
 const allBokings = () => http.get('/bookings')
 const bookDetail = (id) => http.get(`/bookings/${id}`)
 const bookingCreate = (id) => http.post(`/properties/${id}/bookings`)
-const favCreate = (id) => http.post(`/properties/${id}/like`)
+const createLike = (id) => http.post(`/properties/${id}/like`)
+const getLike = (id) => http.get(`/properties/${id}/like`)
+const deleteLike = (id) => http.delete(`/properties/${id}/like`)
 
 const service = {
     signUp,
@@ -52,7 +54,9 @@ const service = {
     propertyCreate,
     propertiesSearched,
     bookingCreate,
-    favCreate
+    createLike,
+    getLike,
+    deleteLike
 }
 
 export default service

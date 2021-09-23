@@ -3,22 +3,9 @@ const Property = require('../../models/property.model')
 
 module.exports.create = (req, res, next) => {
 
-    Like.findOne({ propertyId: req.params.propertyId, userId: req.user.id })
-        .then(like => {
-            if (!like) {
-                const like = new Like({
-                    userId: req.user.id,
-                    propertyId: req.params.propertyId
-                })
-                like.save()
-                    .then(like => res.status(200).json(like))
-            } else {
-                return Like.findByIdAndDelete(like.id)
-                    .then(() => res.status(200))
-            }
-        })
+    Like.create({ userId: req.user.id,propertyId: req.params.propertyId })
+        .then(like => res.json(like))
         .catch(next)
-
 }
 
 module.exports.propertiesLiked = (req, res, next) => {
@@ -34,3 +21,14 @@ module.exports.propertiesLiked = (req, res, next) => {
         .catch(next)
 }
 
+module.exports.likeOne = (req, res, next) => {
+    Like.find({propertyId: req.params.propertyId, userId: req.user.id})
+        .then(like => res.json(like))
+        .catch(next)
+}
+
+module.exports.delete = (req, res, next) => {
+    Like.findOneAndDelete({propertyId: req.params.propertyId, userId: req.user.id})
+        .then(() => res.status(200).send())
+        .catch(next)
+}

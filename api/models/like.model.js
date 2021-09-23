@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 require('./user.model')
 
 const likeSchema = new Schema({
-
     propertyId: {
         type: Schema.Types.ObjectId,
         ref: 'Property'
