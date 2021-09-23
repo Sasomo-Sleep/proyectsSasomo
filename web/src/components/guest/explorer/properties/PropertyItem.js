@@ -2,8 +2,10 @@ import {Link} from 'react-router-dom'
 import React from 'react';
 import './PropertyItem.css'
 import LoggedInPage from '../../../common/LoggedInPage';
+
 const PropertyItem = ({ name, images, price, id }) => {
 
+    
 
     return (
         <LoggedInPage>

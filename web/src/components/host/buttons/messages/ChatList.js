@@ -14,7 +14,6 @@ function ChatList() {
             .then(chats => setChats(chats))
             .catch(err => console.error(err))
     }, [])
-    console.log(chats, "eey")
     if (!chats) return <> </>
     return (
         <> <LoggedInPage>

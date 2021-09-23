@@ -6,6 +6,7 @@ import LoggedInPage from '../../../common/LoggedInPage'
 function Today() {
 
     const auth = useContext(AuthContext)
+    console.log(auth.user.hostBookings)
     if (!auth.user) return <> </>
     return (
         <LoggedInPage>

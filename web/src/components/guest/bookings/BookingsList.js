@@ -13,7 +13,6 @@ const BookingsList = () => {
             .catch(console.error)
     }, [])
 
-    console.log(bookings, "boooko")
     if (!bookings) return <> </>
     return (
         <LoggedInPage>

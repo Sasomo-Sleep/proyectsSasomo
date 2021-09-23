@@ -1,0 +1,10 @@
+.chat img {
+    max-width: 39px;
+    border-radius: 66%;
+}
+
+.new-message {
+    position: fixed;
+    bottom: 83px;
+    width: 85%;
+}

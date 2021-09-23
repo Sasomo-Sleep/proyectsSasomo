@@ -14,7 +14,7 @@ const Detail = (props) => {
             .then(booking => setBooking(booking))
             .catch(console.error)
     }, [id])
-    console.log(booking, "heey")
+    
     if (!booking) return <> </>
     return (
         <>

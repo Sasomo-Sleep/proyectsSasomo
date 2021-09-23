@@ -6,7 +6,7 @@ import service from '../../../services/sasomo-service';
 
 const PropertyForm = ({ onCreateProperty }) => {
 
-    const { register, handleSubmit, setError, setValue, watch, reset, formState: { errors, isValid, isDirty } } = useForm({ mode: 'all' });
+    const { register} = useForm({ mode: 'all' });
 
     const onCreatePropertyForm = property => {
         service.propertyCreate(property)

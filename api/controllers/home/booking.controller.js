@@ -53,36 +53,12 @@ module.exports.delete = (req, res, next) => {
         .catch()
 }
 
-/* module.exports.create = (req, res, next) => {
-    Property.findById(req.params.propertyId)
-        .then(property => {
-            console.log('eee')
-            return Booking.findOne()
-                .populate('property')
-                .then(booking => {
-                    if (booking) {
-                        res.json(booking)
-                    } else {
-                        return Booking.create({ ...req.body, guest: req.user.id })
-                            .then(booking => {
-                                console.log(booking.property.owner, "2")
-                                return Chat.create({ users: [booking.guest, booking.property.owner] })
-                                    .then(chat => res.json(booking))
-                            })
-                    }
-                })
-        })
-        .catch(next)
-} */
-
-
 
 
 
 module.exports.create = (req, res, next) => {
     Property.findById(req.params.propertyId)
         .then(property => {
-            //TODO: validar que la propiedad no tiene ninguna validacion
             return Booking.create({ propertyOwner: property.owner, ...req.body, guest: req.user.id })
                 .then(booking => {
                     return Chat.create({ users: [booking.guest, property.owner] })

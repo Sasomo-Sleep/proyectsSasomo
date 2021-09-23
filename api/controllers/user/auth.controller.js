@@ -62,7 +62,7 @@ module.exports.get = (req, res, next) => {
             populate: {
                 path: 'guest',
                 select: ' name avatar  bookings'
-            }
+            },
         })
         .populate('properties')
         .populate({

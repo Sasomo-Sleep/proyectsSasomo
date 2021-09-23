@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router';
@@ -8,7 +8,7 @@ const EditProfile = () => {
     const history = useHistory()
     const auth = useContext(AuthContext)
 
-    const { register, handleSubmit, setError, formState: { errors }, setValue } = useForm({
+    const { register, handleSubmit } = useForm({
         mode: 'all',
         defaultValues: {
             about: auth.user?.about,

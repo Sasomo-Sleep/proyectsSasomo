@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Profile from './components/user/Profile'
 import Logout from './components/auth/Logout';
@@ -19,11 +18,8 @@ import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
-import { AuthContext } from './contexts/AuthContext';
 function App() {
   
-  const auth = useContext(AuthContext)
-  const history = useHistory()
 
   return (
     <div className="vh-100 vw-100" >

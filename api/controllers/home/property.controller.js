@@ -5,7 +5,6 @@ const Booking = require('../../models/booking.model')
 
 
 module.exports.create = (req, res, next) => {
-    console.log(req.file, req.files)
 
     if (!req.files) {
         delete req.body.images
@@ -63,10 +62,8 @@ module.exports.delete = (req, res, next) => {
 
 
 module.exports.search = (req, res, next) => {
-    console.log('entro', req.query)
     let { checkIn: searchStart, checkOut: searchEnd, lat, lng } = req.query
     let criterial = {}
-    console.log(searchStart, searchEnd, )
     if (lat && lng) {
         criterial = {
             location: {
@@ -108,7 +105,6 @@ module.exports.search = (req, res, next) => {
             }
         })
         .then(properties => {
-            console.log(properties, "oooooooooo")
             properties = properties.filter(prop => prop.bookings.length === 0)
             res.json(properties)
         })

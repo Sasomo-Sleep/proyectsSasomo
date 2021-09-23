@@ -33,6 +33,7 @@ const favDetail = (id) => http.get(`/properties/${id}`)
 const allBokings = () => http.get('/bookings')
 const bookDetail = (id) => http.get(`/bookings/${id}`)
 const bookingCreate = (id) => http.post(`/properties/${id}/bookings`)
+const favCreate = (id) => http.post(`/properties/${id}/like`)
 
 const service = {
     signUp,
@@ -50,7 +51,8 @@ const service = {
     bookDetail,
     propertyCreate,
     propertiesSearched,
-    bookingCreate
+    bookingCreate,
+    favCreate
 }
 
 export default service
