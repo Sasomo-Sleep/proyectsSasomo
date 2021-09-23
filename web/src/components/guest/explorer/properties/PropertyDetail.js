@@ -31,7 +31,7 @@ const PropertyDetail = () => {
 
                 </div>
                 <div>
-                    <span>{flat.maxGuests} guests</span>  ·   <span>{flat.rooms} rooms</span>  ·   <span>{flat.bathroom} bathrooms</span>
+                    <span>{flat.maxGuests} </span>  ·   <span>{flat.rooms} rooms</span>  ·   <span>{flat.bathroom} bathrooms</span>
                     <hr />
                     <p>{flat.description}</p>
                 </div>

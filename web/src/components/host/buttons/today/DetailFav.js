@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import service from '../../../../services/sasomo-service';
 import DetailChild from './detail-child/DetailChild';
+import { NavBar, Icon } from 'antd-mobile';
+import { useHistory } from 'react-router-dom';
 
 const Detail = (props) => {
     const { id } = useParams()
     const [booking, setBooking] = useState()
-
+    const history = useHistory()
     useEffect(() => {
         service.bookingDetail(id)
             .then(booking => setBooking(booking))
@@ -15,12 +17,18 @@ const Detail = (props) => {
     console.log(booking, "heey")
     if (!booking) return <> </>
     return (
-        <div>
-            
-           {booking.map(b =>
-            <DetailChild   key={b.id} {...b}/>
-           )}
-        </div>
+        <>
+             <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => history.push('/today')}>
+                </NavBar>
+            <div>
+                {booking.map(b =>
+                    <DetailChild key={b.id} {...b} />
+                )}
+            </div>
+        </>
     );
 };
 

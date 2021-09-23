@@ -15,9 +15,8 @@ function ChatItem({ users, id }) {
 
             <div>
                 <Link to={`/chats/${id}`}>
-                    {auth.user?.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name.slice(0, 21)} </p>)}
+                    {auth.user?.properties.map(property => <p className="m-0 text-muted" key={property.id}> {property.name.slice(0, 24)} </p>)}
                     <h6 className="m-0 ">{userId?.name}</h6>
-                    <h6>26 sep. -12</h6>
                 </Link>
             </div>
             <img src={userId?.avatar} alt={userId?.name} className="avatar  w-100 rounded-circle" />

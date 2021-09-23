@@ -51,7 +51,7 @@ const MenuGuest = () => {
                     <button onClick={() => {
                         
                     auth.setGuest(false)
-                    history.push("/menu")
+                    history.push("/today")
                     }}> Use as Host</button>
                     <i className="fas fa-arrows-alt-h"></i>
                 </div>

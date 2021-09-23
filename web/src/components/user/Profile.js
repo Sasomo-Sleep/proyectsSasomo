@@ -57,7 +57,6 @@ function Profile() {
             </div>
 
             <div className="profile">
-                <span>{'media de las reviews'}</span>
                 <h3>{auth.user?.reviews?.length} reviews</h3>
             </div>
         </div>

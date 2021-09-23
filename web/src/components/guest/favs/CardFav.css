@@ -41,3 +41,8 @@
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+.card__info p {
+  display: flex;
+  flex-direction: row;
+}

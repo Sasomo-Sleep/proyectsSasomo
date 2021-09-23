@@ -10,8 +10,6 @@ import ChatDetail from './components/host/buttons/messages/ChatDetail';
 import SignUp from './components/auth/SingUp';
 import Today from './components/host/buttons/today/Today';
 import Detail from './components/host/buttons/today/DetailFav';
-import Footer from './components/common/footer1/Footer'
-import Footer2 from './components/common/footer2/Footer2';
 import MenuGuest from './components/guest/menu/MenuGuest';
 import HomesFavs from './components/guest/favs/HomesFavs';
 import DetailFav from './components/guest/favs/DetailFav';
@@ -21,10 +19,6 @@ import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
-import TabBarHost from "./components/common/tabbar/TabBarHost"
-import { TabBar } from 'antd-mobile';
-import { DatePicker, List } from 'antd-mobile';
-import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 import { AuthContext } from './contexts/AuthContext';
 function App() {
   

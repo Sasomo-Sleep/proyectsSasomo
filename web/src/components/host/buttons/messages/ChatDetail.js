@@ -1,10 +1,11 @@
 
-import { useState, useEffect, } from 'react';
+import { useState, useEffect, useContext, } from 'react';
 import { useParams, useHistory } from 'react-router';
 import service from '../../../../services/sasomo-service';
 import { NavBar, Icon } from 'antd-mobile';
 import LoggedInPage from '../../../common/LoggedInPage';
-
+import moment from 'moment';
+import { AuthContext } from '../../../../contexts/AuthContext';
 
 function ChatDetail() {
 
@@ -13,7 +14,7 @@ function ChatDetail() {
     const [messages, setMessages] = useState()
     const [currentMessage, setCurrentMessage] = useState('')
     const history = useHistory()
-
+    const auth = useContext(AuthContext)
     useEffect(() => {
         service.getChat(id)
             .then(chat => {
@@ -33,25 +34,26 @@ function ChatDetail() {
     console.log(chat, "comeculos")
     return (
         <LoggedInPage>
-        <>
-            <NavBar
-                mode="light"
-                icon={<Icon type="left" />}
-                onLeftClick={() => history.push('/profile/my-chats')}
-            >Chating with {chat.users[0].name}  <i className="far fa-comment-alt"></i></NavBar>
+            <>
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => history.push('/profile/my-chats')}
+                >Chating with {chat.users[0].name}<i className="far fa-comment-alt"/> 
+                </NavBar>
 
-            <div className="chat m-4">
-                <div className="col-sm-6 mt-4">
-                    {messages.map(mess =>
-                        <p key={mess.id}> {mess.message}</p>
-                    )}
-                </div>
-                <form onSubmit={handleSubmit}>
+                <div className="chat m-4">
+                    <div className="col-sm-6 mt-4">
+                        {messages.map(mess =>
+                            <p key={mess.id}><img src={auth.user?.avatar} alt={auth.user?.name} />{mess.message} <span style={{ "fontSize": "smaller" }}>{moment(mess.createdAt).startOf('day').fromNow()}</span></p>
+                        )}
+                    </div>
+                    <form onSubmit={handleSubmit}>
                         <textarea value={currentMessage} name="message" onChange={(e) => setCurrentMessage(e.target.value)} className="form-control" placeholder="Your Message Here"></textarea>
                         <button type="submit">Send</button>
                     </form>
-            </div>
-        </>
+                </div>
+            </>
         </LoggedInPage>
     )
 }
