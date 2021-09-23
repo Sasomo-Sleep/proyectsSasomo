@@ -14,6 +14,7 @@ const BookingDetail = () => {
     const { id } = useParams()
     const [booking, setBooking] = useState()
     const history = useHistory()
+    
     useEffect(() => {
         service.bookDetail(id)
             .then(booking => setBooking(booking))

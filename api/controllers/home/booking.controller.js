@@ -3,17 +3,25 @@ const Chat = require('../../models/chat/chat.model')
 const Property = require('../../models/property.model')
 
 module.exports.create = (req, res, next) => {
-    Booking.create({ ...req.body, guest: req.user.id })
-        .then(booking => res.status(200).json(booking))
-        .catch(next)
+    if (!booking) {
+        Booking.create({ ...req.body, guest: req.user.id })
+            .then(booking => res.status(200).json(booking))
+            .catch(next)
+    } else {
+        next()
+    }
 }
 
 
 module.exports.listmines = (req, res, next) => {
     Booking.find({ guest: req.user.id })
         .populate('guest')
-        .populate('propertyOwner')
-        .populate('property')
+        .populate({
+            path: 'propertyOwner',
+            populate: {
+                path: 'properties',
+            }
+        })
         .then(bookings => res.json(bookings))
         .catch(next)
 }

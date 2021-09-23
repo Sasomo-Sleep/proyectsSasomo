@@ -10,10 +10,23 @@ const DetailFav = () => {
     const { id } = useParams()
     const [flat, setFlat] = useState()
     const history = useHistory()
-    useEffect(() => {
+
+
+
+    function fetchFlats() {
         service.favDetail(id)
             .then(flat => setFlat(flat))
             .catch(err => console.error(err))
+    }
+
+    function handleCreateBooking() {
+        service.createBooking(id)
+            .then(booking => history.push('/bookings'))
+            .catch(console.erro)
+    }
+
+    useEffect(() => {
+        fetchFlats()
     }, [id])
 
     if (!flat) return <> </>
@@ -48,6 +61,9 @@ const DetailFav = () => {
 
                     <div>
                         <p>Aqui tiene que ir el mapa de maps jeje</p>
+                        <button className="btn btn-dark" onClick={handleCreateBooking}>Do the booking!</button>
+                        <p>Aqui tiene que ir el mapa de maps jeje</p>
+
                     </div>
                 </div>
             </>

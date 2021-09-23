@@ -9,26 +9,23 @@ const PropertyItem = ({ name, images, price, id }) => {
     const [isLiked, setLike] = useState()
 
     useEffect(() => {
-        console.log(id)
         service.getLike(id)
-            .then(like => {
-                setLike(like.length > 0)
-            })
+            .then(like => setLike(like.length > 0))
             .catch(console.error)
     }, [id])
 
     function handleLikeClicked() {
         if (isLiked) {
             service.deleteLike(id)
-            .then(() => setLike(false))
-            .catch(console.error)
+                .then(() => setLike(false))
+                .catch(console.error)
         } else {
             service.createLike(id)
                 .then(() => setLike(true))
                 .catch(console.error)
         }
     }
-    
+
     return (
         <div className='card'>
             <Link to={`/properties/${id}`}> <img className='card-img' src={images[0]} alt={name} /></Link>
