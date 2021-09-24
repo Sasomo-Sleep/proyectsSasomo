@@ -7,9 +7,11 @@ import moment from 'moment'
 import service from '../../../services/sasomo-service';
 import PropertyItem from './properties/PropertyItem';
 import LoggedInPage from '../../common/LoggedInPage';
+import Map from '../../map/Map';
 
 
 const Explorer = () => {
+
     const [location, setLocation] = useState()
     const [showDatePicker, setShowDatePicker] = useState(false)
     const [dateRange, setDateRange] = useState({
@@ -23,13 +25,15 @@ const Explorer = () => {
         }
         if (dateRange.checkIn && dateRange.checkOut && location) {
             service.propertiesSearched({ ...dateRange, ...location })
-                .then(properties => setProperties(properties))
-                .catch(console.error())
+            .then(properties => setProperties(properties))
+            .catch(console.error())
         }
-    }, [dateRange, location])
+    }, [dateRange, location, showDatePicker])
+
     return (
         <LoggedInPage>
             <div id="search">
+                <h1>Search and find!</h1>
                 <div className='calendar'>
                     <Calendar
                         className='calendar'
@@ -52,11 +56,17 @@ const Explorer = () => {
                 </List.Item>
 
             </div>
+
+            <div>
+                <Map propertiesSearched={properties}/>
+            </div>
+
             <div className="mt-5">
                 {properties?.map(prop =>
                     <PropertyItem   {...prop} key={prop.id} />
                 )}
             </div>
+            
         </LoggedInPage>
     );
 }

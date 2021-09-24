@@ -18,8 +18,9 @@ import Explorer from './components/guest/explorer/Explorer';
 import EditProfile from './components/user/EditProfile';
 import PropertyForm from './components/host/property/PropertyForm';
 import 'antd-mobile/dist/antd-mobile.css'
+import Map from './components/map/Map';
 function App() {
-  
+
 
   return (
     <div className="vh-100 vw-100" >
@@ -48,6 +49,8 @@ function App() {
         <Route exact path="/bookings/:id" component={BookingDetail} />
         <Route exact path="/search" component={Explorer} />
         <Route exact path="/properties" component={PropertyForm} />
+
+        <Route exact path="/map" component={Map} />
       </Switch>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import service from '../../../services/sasomo-service';
 import './PropertyDetail.css'
@@ -22,7 +22,6 @@ const PropertyDetail = () => {
                     <img src={flat.images} alt={flat.name} />
 
                     <h6>{flat.name}</h6>
-                    {/*  <p>{flat.reviews}</p> */}
                     <p>{flat.owner.city}</p>
                     <hr />
                 </div>
@@ -48,7 +47,7 @@ const PropertyDetail = () => {
 
 };
 
-export default PropertyDetail;
+export default PropertyDetail; */
 
 /* 
 

@@ -9,7 +9,7 @@ const CardFav = ({ propertyId }) => {
                 <img src={propertyId?.images[0]} alt={propertyId?.name} />
                 <div className="card-fav__info">
                     <h6>{propertyId?.name}</h6>
-                    <p>{propertyId?.price}€ / Night </p>
+                    <p>{propertyId?.price} € / Night </p>
                 </div>
             </div>
         </Link>

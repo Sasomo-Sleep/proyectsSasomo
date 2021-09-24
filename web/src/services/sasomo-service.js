@@ -26,6 +26,7 @@ const message = (id, message) => http.post(`/chats/${id}/message`, { message })
 //properties
 const propertyCreate = (property) => http.post('/properties', property)
 const propertiesSearched = (filter) => http.get('/properties/search', {params: {...filter}})
+
 //booking
 const bookingDetail = (id) => http.get(`/host/bookings/${id}`)//host
 const homeFavs = () => http.get('/properties-liked')

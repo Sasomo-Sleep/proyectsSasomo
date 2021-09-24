@@ -74,6 +74,7 @@ propertySchema.pre('remove', function(next) {
     next();
 });
 
+
 const Property = mongoose.model('Property', propertySchema)
 
 module.exports = Property

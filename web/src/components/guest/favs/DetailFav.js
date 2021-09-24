@@ -60,7 +60,6 @@ const DetailFav = () => {
                     <hr />
 
                     <div>
-                        <p>Aqui tiene que ir el mapa de maps jeje</p>
                         <button className="btn btn-dark" onClick={handleCreateBooking}>Do the booking!</button>
                         <p>Aqui tiene que ir el mapa de maps jeje</p>
 
