@@ -13,14 +13,19 @@ const BookingsList = () => {
             .catch(console.error)
     }, [])
 
+    console.log(bookings)
     if (!bookings) return <> </>
     return (
         <LoggedInPage>
             <div className="m-3">
                 <h1>Where you have been!</h1>
-                {bookings?.map(booking =>
-                    <BookingItem   {...booking} key={booking?.id} />
-                )}
+
+                <div className="heey">
+                    {bookings?.map(booking =>
+                        <BookingItem   {...booking} key={booking?.id} />
+                    )}
+                </div>
+
             </div>
         </LoggedInPage>
     );

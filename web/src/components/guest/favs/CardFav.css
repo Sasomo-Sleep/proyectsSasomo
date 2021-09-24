@@ -1,11 +1,11 @@
-.card {
+.card-fav {
   margin: 10px;
  /*  border-radius: 10px; */
   overflow: hidden;
   border: unset !important;
   background-color: unset !important;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: -5px;
   display: flex;
   flex-direction: column !important;
 }
@@ -14,7 +14,7 @@
   transform: scale(1.07);
 } */
 
-.fav > img {
+.card-fav > img {
   max-height: 100% !important;
   max-width: 100% !important;
   height: 170px !important;
@@ -22,7 +22,7 @@
   margin: 10px !important;
 }
 
-.fav__info {
+.card-fav__info {
   margin-top: -9px;
   border-radius: 10px;
   padding: 2px;
@@ -31,19 +31,19 @@
   border: 1;
 }
 
-.fav__info > h2 {
+.card-fav__info > h2 {
   font-size: 18px;
   font-weight: 600;
 }
 
-.fav__info > h4 {
+.card-fav__info > h6 {
   font-size: 14px;
   font-weight: 300;
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
-.fav__info p {
+.card-fav__info p {
   display: flex;
   flex-direction: row;
 }
