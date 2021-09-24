@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import ReactMapGL, {Marker, Popup} from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import getCenter from 'geolib/es/getCenter'
 const Map = ({ propertiesSearched }) => {
 
     const [viewport, setViewport] = useState()
-
+    const [selectedLocation, setSelectedLocation] = useState()
 
     useEffect(() => {
         const coordinates = propertiesSearched?.map((result) => ({
             latitude: result?.location[0],
             longitude: result?.location[1]
         }))
-        
+
         const center = getCenter(coordinates)
-        
+
         setViewport({
             latitude: center?.latitude,
             longitude: center?.longitude,
@@ -23,6 +23,7 @@ const Map = ({ propertiesSearched }) => {
     }, [propertiesSearched])
 
     if (!viewport) return <> </>
+
 
     return (
         <ReactMapGL
@@ -34,22 +35,43 @@ const Map = ({ propertiesSearched }) => {
             onViewportChange={(nextViewport) => setViewport(nextViewport)}
         >
 
-        {propertiesSearched?.map(result => (
+            {propertiesSearched?.map(result => {
+                return (<div key={result.id}>
+                    <Marker
+                        latitude={result.location[0]}
+                        longitude={result.location[1]}
+                        offsetLeft={-20}
+                        offsetTop={-10}
+                    >
+                        <p
+                            role="img"
+                            onClick={() => setSelectedLocation(result)}
+                            aria-label="push-pin"
+                        >
+                            <i className="fas fa-hand-point-down"
+                                style={{ "color": "red" }}></i>
 
-            <div >
-                <Marker
-                    latitude={result.location[0]}
-                    longitude={result.location[1]}
-                    offsetLeft={-20}
-                    offsetTop={-10}
-                >
-                    <p><i className="fas fa-hand-point-down" style={{"color": "red"}}></i></p>
-                </Marker>
-            </div>
-        ))}
+                        </p>
+                    </Marker>
+
+                    {selectedLocation?.location[0] === result.location[0] ? (
+                        <Popup
+                            closeOnClick={true}
+                            latitude={result.location[0]}
+                            longitude={result.location[1]}
+                        >
+                            {result.name}
+                        </Popup>
+                    ) : (
+                        false
+                    )}
+
+                </div>
+                )
+            })}
         </ReactMapGL>
 
     );
 };
- 
+
 export default Map;
